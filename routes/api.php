@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     // Crud Siswa
     Route::get('siswa','Api\SiswaController@index');
+    Route::get('siswa/{id}','Api\SiswaController@spesifik');
     Route::post('siswa','Api\SiswaController@tambah');
     Route::put('siswa/{id}','Api\SiswaController@edit');
     Route::delete('siswa/{id}','Api\SiswaController@hapus');
