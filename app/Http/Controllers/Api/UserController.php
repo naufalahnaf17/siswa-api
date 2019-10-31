@@ -58,7 +58,17 @@ class UserController extends Controller
 
     public function menu($kode){
       $data = DB::table('menu')->where('kode_klp' , $kode)->get();
-      return response()->json($data);
+
+      if ($data) {
+        $menu_satu = DB::table('menu')->where([
+          ['kode_klp', '=', $kode],
+          ['level_menu', '=', 1],
+        ])->get();
+
+        $res['MenuSatu'] = $menu_satu;
+        return response($res);
+      }
+
     }
 
     public function mform(){
