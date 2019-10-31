@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
-Route::get('menu' , 'Api\UserController@menu');
+Route::get('menu/{kode}' , 'Api\UserController@menu');
 Route::get('mform' , 'Api\UserController@mform');
 
 

@@ -56,8 +56,8 @@ class UserController extends Controller
         return response()->json(['success' => $user], $this->successStatus);
     }
 
-    public function menu(){
-      $data = DB::table('menu')->get();
+    public function menu($kode){
+      $data = DB::table('menu')->where('kode_klp' , $kode)->get();
       return response()->json($data);
     }
 
