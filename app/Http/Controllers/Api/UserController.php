@@ -62,7 +62,7 @@ class UserController extends Controller
     }
 
     public function mform(){
-      $data = DB::table()->get();
+      $data = DB::table('mform')->get();
       return response()->json($data);
     }
 
