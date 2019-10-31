@@ -66,6 +66,7 @@ class UserController extends Controller
         ])->get();
 
         $res['MenuSatu'] = $menu_satu;
+        $res['Semua'] = $data;
         return response($res);
       }
 
