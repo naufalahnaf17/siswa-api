@@ -65,7 +65,13 @@ class UserController extends Controller
           ['level_menu', '=', 1],
         ])->get();
 
+        $menu_dua = DB::table('menu')->where([
+          ['kode_klp', '=', $kode],
+          ['level_menu', '=', 2],
+        ])->get();
+
         $res['MenuSatu'] = $menu_satu;
+        $res['MenuDua'] = $menu_dua;
         $res['Semua'] = $data;
         return response($res);
       }
