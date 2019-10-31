@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -53,6 +54,16 @@ class UserController extends Controller
     {
         $user = Auth::user();
         return response()->json(['success' => $user], $this->successStatus);
+    }
+
+    public function menu(){
+      $data = DB::table('menu')->get();
+      return response()->json($data);
+    }
+
+    public function mform(){
+      $data = DB::table()->get();
+      return response()->json($data);
     }
 
 
