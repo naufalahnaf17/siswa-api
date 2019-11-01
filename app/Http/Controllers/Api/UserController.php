@@ -74,15 +74,23 @@ class UserController extends Controller
           return response($res);
         }
 
-      }else{
-        $data = DB::table('menu')->where('kode_klp' , $kode)->get()
+      }
 
-        $menu = DB::table('menu')->where('kode_klp' , '=' , 'ADM')->whereBetween('kode_form' , ['F07','F09'])->get();
-        $res['MenuSatu'] = $menu;
-        $res['Semua'] = $data;
-        return response($res);
+      if ($kode === 'ADM') {
+
+        $data = DB::table('menu')->where('kode_klp' , $kode)->get();
+
+        if ($data) {
+          $admin_menu = DB::table('menu')->where('kode_klp' , '=' , 'ADM')->whereBetween('kode_form' , ['F07','F09'])->get();
+
+          $res['AdminMenu'] = $admin_menu;
+          $res['Semua'] = $data;
+          return response($res);
+        }
 
       }
+
+      return response('Terjadi Kesalahan');
 
     }
 
