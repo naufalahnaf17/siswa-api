@@ -57,17 +57,24 @@ class UserController extends Controller
     }
 
     public function menu($kode){
-      $data = DB::table('menu')->where('kode_klp' , $kode)->get();
 
-      if ($data) {
-        $menu_satu = DB::table('menu')->whereBetween('kode_form' , ['F02','F03'])->get();
+      if ($kode === 'SISWA') {
 
-        $menu_dua = DB::table('menu')->whereBetween('kode_form' , ['F04','F06'])->get();
+        $data = DB::table('menu')->where('kode_klp' , $kode)->get();
 
-        $res['MenuSatu'] = $menu_satu;
-        $res['MenuDua'] = $menu_dua;
-        $res['Semua'] = $data;
-        return response($res);
+        if ($data) {
+          $menu_satu = DB::table('menu')->whereBetween('kode_form' , ['F02','F03'])->get();
+
+          $menu_dua = DB::table('menu')->whereBetween('kode_form' , ['F04','F06'])->get();
+
+          $res['MenuSatu'] = $menu_satu;
+          $res['MenuDua'] = $menu_dua;
+          $res['Semua'] = $data;
+          return response($res);
+        }
+
+      }else {
+        return response('ini admin');
       }
 
     }
