@@ -74,7 +74,7 @@ class UserController extends Controller
           return response($res);
         }
 
-      }else if($kode === 'ADM'){
+      }else{
         $data = DB::table('menu')->where('kode_klp' , $kode)->get()
 
         if ($data) {
