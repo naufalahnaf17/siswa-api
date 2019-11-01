@@ -65,7 +65,10 @@ class UserController extends Controller
         if ($data) {
           $menu_satu = DB::table('menu')->whereBetween('kode_form' , ['F02','F03'])->get();
           $menu_dua = DB::table('menu')->whereBetween('kode_form' , ['F04','F06'])->get();
-          $menu_tiga = DB::table('menu')->whereBetween('kode_form' , ['F07','F09'])->get();
+          $menu_tiga = DB::table('menu')->whereBetween([
+              ['kode_form' , ['F07','F09']],
+              ['kode_klp' , '=' , 'SISWA']
+            ])->get();
 
           $res['MenuSatu'] = $menu_satu;
           $res['MenuDua'] = $menu_dua;
