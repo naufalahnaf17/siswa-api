@@ -69,7 +69,7 @@ class UserController extends Controller
 
           $res['MenuSatu'] = $menu_satu;
           $res['MenuDua'] = $menu_dua;
-          $res['MenuTiga'] = $menu_dua;
+          $res['MenuTiga'] = $menu_tiga;
           $res['Semua'] = $data;
           return response($res);
         }
