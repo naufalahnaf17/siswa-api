@@ -74,7 +74,9 @@ class UserController extends Controller
         }
 
       }else {
-        return response('ini admin');
+        $data = DB::table('menu')->where('kode_klp' , $kode)->get();
+        $res['Semua'] = $data;
+        return response($res);
       }
 
     }
