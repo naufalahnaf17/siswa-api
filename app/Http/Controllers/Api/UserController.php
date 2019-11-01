@@ -60,10 +60,7 @@ class UserController extends Controller
       $data = DB::table('menu')->where('kode_klp' , $kode)->get();
 
       if ($data) {
-        $menu_satu = DB::table('menu')->where([
-          ['kode_klp', '=', $kode],
-          ['level_menu', '=', 1],
-        ])->get();
+        $menu_satu = DB::table('menu')->whereBetween('rowindex' , [2,4])->get();
 
         $menu_dua = DB::table('menu')->where([
           ['kode_klp', '=', $kode],
