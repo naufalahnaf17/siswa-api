@@ -95,7 +95,7 @@ class UserController extends Controller
 
     }
 
-    public function mform(){
+    public function mformAdmin(){
 
       $data = DB::table('m_form')->get();
       $satu = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F02','F03'])->get();
@@ -107,6 +107,21 @@ class UserController extends Controller
         $res['FormDua'] = $dua;
         $res['FormTiga'] = $tiga;
 
+        return response($res);
+      }else {
+        $res['message'] = "Data Kosong";
+        return response($res);
+      }
+
+    }
+
+    public function mformAdmin(){
+
+      $data = DB::table('m_form')->get();
+      $satu = DB::table('m_form')->where('form' , '=' , 'ADM')->whereBetween('kode_form' , ['F07','F09'])->get();
+
+      if (count($data) > 0 ) {
+        $res['FormSatu'] = $satu;
         return response($res);
       }else {
         $res['message'] = "Data Kosong";

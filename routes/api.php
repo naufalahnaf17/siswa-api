@@ -17,7 +17,8 @@ use Illuminate\Http\Request;
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
 Route::get('menu/{kode}' , 'Api\UserController@menu');
-Route::get('mform' , 'Api\UserController@mform');
+Route::get('mform/siswa' , 'Api\UserController@mformSiswa');
+Route::get('mform/admin' , 'Api\UserController@mformAdmin');
 Route::post('mform/tambah' , 'Api\UserController@tambahMform');
 Route::delete('mform/delete/{kode_form}' , 'Api\UserController@deleteMform');
 
