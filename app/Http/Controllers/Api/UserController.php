@@ -96,8 +96,17 @@ class UserController extends Controller
     }
 
     public function mform(){
-      $data = MenuForm::where('form','SISWA')->all();
-      return response()->json($data);
+      $data = MenuForm::where('form','SISWA')->get();
+
+      if (count($data) > 0 ) {
+        $res['message'] = "Success Mengambil Data";
+        $res['value'] = $data;
+        return response($res);
+      }else {
+        $res['message'] = "Data Kosong";
+        return response($res);
+      }
+
     }
 
     public function tambahMform(Request $request){
