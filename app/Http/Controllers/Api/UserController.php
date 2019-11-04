@@ -99,5 +99,22 @@ class UserController extends Controller
       return response()->json($data);
     }
 
+    public function cek_mform(){
+      $data =   DB::table('pegawai')->insert([
+		            'kode_form' => 'F02',
+		            'nama_form' => 'data-jenis',
+		            'form' => 'data-jenis',
+		            'sts_dok' => '1'
+	    ]);
+
+      if ($data) {
+        $res['message'] = 'Berhasil';
+        return response($res);
+      }else {
+        return response('Error');
+      }
+
+    }
+
 
 }
