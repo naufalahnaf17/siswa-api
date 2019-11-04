@@ -96,11 +96,10 @@ class UserController extends Controller
     }
 
     public function mform(){
-      $data = MenuForm::where('form','SISWA')->get();
+      $data = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F02','F03'])->get();
 
       if (count($data) > 0 ) {
-        $res['message'] = "Success Mengambil Data";
-        $res['value'] = $data;
+        $res['FormSatu'] = $data;
         return response($res);
       }else {
         $res['message'] = "Data Kosong";
