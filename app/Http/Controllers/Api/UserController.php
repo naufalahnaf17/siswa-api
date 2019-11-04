@@ -95,7 +95,7 @@ class UserController extends Controller
 
     }
 
-    public function mformAdmin(){
+    public function mformSiswa(){
 
       $data = DB::table('m_form')->get();
       $satu = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F02','F03'])->get();
