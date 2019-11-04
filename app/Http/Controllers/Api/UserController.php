@@ -117,10 +117,9 @@ class UserController extends Controller
 
     public function mformAdmin(){
 
-      $data = DB::table('m_form')->get();
-      $satu = DB::table('m_form')->where('form' , '=' , 'ADM')->whereBetween('kode_form' , ['F07','F09'])->get();
+      $satu = DB::table('m_form')->where('form' , '=' , 'ADM')->get();
 
-      if (count($data) > 0 ) {
+      if (count($satu) > 0 ) {
         $res['FormSatu'] = $satu;
         return response($res);
       }else {
