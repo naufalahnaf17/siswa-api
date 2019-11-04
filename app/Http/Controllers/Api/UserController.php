@@ -136,7 +136,7 @@ class UserController extends Controller
 
     public function deleteMform($kode_form){
 
-      $data = MenuForm::find($kode_form);
+      $data = MenuForm::where('kode_form',$kode_form)->get();
       if($data->delete()){
         $res['message'] = "Success!";
         return response($res);
