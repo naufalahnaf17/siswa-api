@@ -96,7 +96,7 @@ class UserController extends Controller
     }
 
     public function mform(){
-      $data = MenuForm::all();
+      $data = MenuForm::where('form','SISWA')->all();
       return response()->json($data);
     }
 
