@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\MenuForm;
 use Validator;
 use Illuminate\Support\Facades\DB;
 
@@ -95,23 +96,54 @@ class UserController extends Controller
     }
 
     public function mform(){
-      $data = DB::table('m_form')->get();
+      $data = MenuForm::all();
       return response()->json($data);
     }
 
-    public function cek_mform(){
-      $data =   DB::table('m_form')->insert([
-		            'kode_form' => 'F02',
-		            'nama_form' => 'data-jenis',
-		            'form' => 'data-jenis',
-		            'sts_dok' => '1'
-	    ]);
+    public function tambahMform(Request $request){
 
-      if ($data) {
-        $res['message'] = 'Berhasil';
+      $validator = Validator::make($request->all(), [
+          'kode_form' => 'required',
+          'nama_form' => 'required',
+          'form' => 'required'
+      ]);
+
+      if ($validator->fails()) {
+          return response()->json(['error' => $validator->errors()], 401);
+      }
+
+      $kode_form = $request->input('kode_form');
+      $nama_form = $request->input('nama_form');
+      $form = $request->input('form');
+      $sts_dok = '1';
+
+
+      $data = new MenuForm;
+      $data->kode_form = $kode_form;
+      $data->nama_form = $nama_form;
+      $data->form = $form;
+      $data->sts_dok = $sts_dok;
+
+      if ($data->save()) {
+        $res['message'] = "Success Menyimpan Data";
         return response($res);
       }else {
-        return response('Error');
+        $res['message'] = "Gagal Menyimpan Data";
+        return response($res);
+      }
+
+    }
+
+    public function deleteMform($kode_form){
+
+      $data = MenuForm::find($kode_form);
+      if($data->delete()){
+        $res['message'] = "Success!";
+        return response($res);
+      }
+      else{
+          $res['message'] = "Failed!";
+          return response($res);
       }
 
     }
