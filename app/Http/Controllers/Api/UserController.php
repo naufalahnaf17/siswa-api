@@ -100,7 +100,7 @@ class UserController extends Controller
     }
 
     public function cek_mform(){
-      $data =   DB::table('pegawai')->insert([
+      $data =   DB::table('m_form')->insert([
 		            'kode_form' => 'F02',
 		            'nama_form' => 'data-jenis',
 		            'form' => 'data-jenis',
