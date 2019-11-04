@@ -19,7 +19,7 @@ Route::post('register', 'Api\UserController@register');
 Route::get('menu/{kode}' , 'Api\UserController@menu');
 Route::get('mform' , 'Api\UserController@mform');
 Route::post('mform/tambah' , 'Api\UserController@tambahMform');
-Route::delete('mform/delete/{kode_form}' , 'Api\UserController@deletMform');
+Route::delete('mform/delete/{kode_form}' , 'Api\UserController@deleteMform');
 
 
 Route::group(['middleware' => 'auth:api'], function() {
