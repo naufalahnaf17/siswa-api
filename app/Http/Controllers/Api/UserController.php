@@ -96,10 +96,16 @@ class UserController extends Controller
     }
 
     public function mform(){
-      $data = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F02','F03'])->get();
+
+      $satu = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F02','F03'])->get();
+      $dua = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F04','F06'])->get();
+      $tiga = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F07','F09'])->get();
 
       if (count($data) > 0 ) {
-        $res['FormSatu'] = $data;
+        $res['FormSatu'] = $satu;
+        $res['FormDua'] = $dua;
+        $res['FormTiga'] = $tiga;
+
         return response($res);
       }else {
         $res['message'] = "Data Kosong";
