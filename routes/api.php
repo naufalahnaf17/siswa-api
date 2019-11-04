@@ -18,7 +18,7 @@ Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
 Route::get('menu/{kode}' , 'Api\UserController@menu');
 Route::get('mform' , 'Api\UserController@mform');
-Route::get('tm-form' , 'Api\UserController@cek_mform');
+Route::post('tm-form' , 'Api\UserController@cek_mform');
 
 
 Route::group(['middleware' => 'auth:api'], function() {
