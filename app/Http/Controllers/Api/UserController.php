@@ -97,6 +97,7 @@ class UserController extends Controller
 
     public function mform(){
 
+      $data = DB::table('m_form')->get();
       $satu = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F02','F03'])->get();
       $dua = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F04','F06'])->get();
       $tiga = DB::table('m_form')->where('form' , '=' , 'SISWA')->whereBetween('kode_form' , ['F07','F09'])->get();
