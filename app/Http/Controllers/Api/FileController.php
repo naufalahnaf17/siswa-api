@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FileController extends Controller
 {
@@ -19,7 +20,6 @@ class FileController extends Controller
   }
 
   public function upload(Request $request){
-
     $photo = $request->file('photo');
     $ektensi = $photo->extension();
     try {
