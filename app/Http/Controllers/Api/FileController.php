@@ -12,7 +12,7 @@ class FileController extends Controller
     $data = $nama;
 
     try {
-      return response()->download({{ url('/' . $data) }});
+      return response()->download('/' . $data);
     } catch (\Exception $e) {
       return response('Data Tidak Di Temukan');
     }
