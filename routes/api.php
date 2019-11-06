@@ -33,4 +33,9 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('siswa','Api\SiswaController@tambah');
     Route::put('siswa/{id}','Api\SiswaController@edit');
     Route::delete('siswa/{id}','Api\SiswaController@hapus');
+
+    // Upload Image For Profile
+    Route::get('file/download/{nama}' , 'Api\FileController@download');
+    Route::post('file/upload' , 'Api\FileController@upload');
+
 });
