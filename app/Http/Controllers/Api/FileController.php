@@ -12,10 +12,11 @@ class FileController extends Controller
     $data = $nama;
 
     try {
-      return response()->download('/' . $data);
+      return response()->download(public_path('/upload' . '/' . $data));
     } catch (\Exception $e) {
       return response('Data Tidak Di Temukan');
     }
+
 
   }
 
@@ -25,7 +26,7 @@ class FileController extends Controller
     try {
       if ($ektensi === 'png' || $ektensi === 'jpg' ) {
         $filename = str_random(10).'.'.$ektensi;
-        $path = $request->file('photo')->move(('/') , $filename);
+        $path = $request->file('photo')->move(public_path("/upload") , $filename);
         $photoURL = url('/api/file/download/'.$filename);
         $res['url'] = $photoURL;
         return response($res);
