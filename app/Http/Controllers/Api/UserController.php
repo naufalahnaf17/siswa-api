@@ -65,7 +65,6 @@ class UserController extends Controller
 
       if ($data->save()) {
         $res['message'] = "Success Mengubah Data";
-        $res['cek'] = $request->input('url_photo');
         return response($res);
       }else {
         $res['message'] = "Error 404";
