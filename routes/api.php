@@ -26,6 +26,7 @@ Route::delete('mform/delete/{kode_form}' , 'Api\UserController@deleteMform');
 Route::group(['middleware' => 'auth:api'], function() {
     //Detail Account
     Route::post('details', 'Api\UserController@details');
+    Route::put('details/{id}' , 'Api\UserController@set_profile');
 
     // Crud Siswa
     Route::get('siswa','Api\SiswaController@index');

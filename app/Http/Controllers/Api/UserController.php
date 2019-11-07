@@ -57,6 +57,22 @@ class UserController extends Controller
         return response()->json(['success' => $user], $this->successStatus);
     }
 
+    public function set_profile($id,Request $request)
+    {
+
+      $data = User::find($id);
+      $data->url_photo = $request->input('url_photo');
+
+      if ($data->save()) {
+        $res['message'] = "Success Mengubah Data";
+        return response($res);
+      }else {
+        $res['message'] = "Error 404";
+        return response($res);
+      }
+
+    }
+
     public function menu($kode){
 
       if ($kode === 'SISWA') {
