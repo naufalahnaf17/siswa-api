@@ -61,7 +61,8 @@ class UserController extends Controller
     public function set_profile($id,Request $request)
     {
 
-      return response($request->input('name'));
+      $cek = $request->name;
+      return response($cek);
 
     }
 
