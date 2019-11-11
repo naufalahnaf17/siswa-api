@@ -61,7 +61,7 @@ class UserController extends Controller
     public function set_profile($id,Request $request)
     {
 
-      $data = User::find($id);
+      $data = Auth::user()->find($id);
       $data->name = $request->input('name');
 
       if ($data->save()) {
