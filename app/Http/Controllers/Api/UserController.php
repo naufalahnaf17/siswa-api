@@ -221,10 +221,8 @@ class UserController extends Controller
     public function update_profile($email,Request $request)
     {
 
-      $url_photo = $request->input('url_photo');
-
       $data = DB::table('users')->where('email' , $email)->update([
-        'url_photo' => $url_photo
+        'url_photo' => $request->url_photo
       ]);
 
       if ($data) {
