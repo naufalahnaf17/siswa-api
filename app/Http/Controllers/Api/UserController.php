@@ -221,9 +221,14 @@ class UserController extends Controller
     public function update_profile($email,Request $request)
     {
 
-      $data = User::where('email' , '=' , $email)->get();
+      $data = User::where('email', '=' , $email);
+      $data->url_photo = $request->input('url_photo');
 
-      return response($data);
+      if ($data->save()) {
+        return response('ok');
+      }else {
+        return response('fail')
+      }
 
     }
 
