@@ -61,8 +61,18 @@ class UserController extends Controller
     public function set_profile($id,Request $request)
     {
 
-      $cek = $request->name;
-      return response($cek);
+      $data = User::find($id);
+      $data->name = $request->input('name');
+      $data->created_at = '2019-11-11 06:25:50.239';
+      $data->updated_at = '2019-11-11 06:25:50.239';
+
+      if ($data->save()) {
+        $res['message'] = "Success Mengubah Data";
+        return response($res);
+      }else {
+        $res['message'] = "Error 404";
+        return response($res);
+      }
 
     }
 
