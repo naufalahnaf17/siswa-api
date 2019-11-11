@@ -226,9 +226,9 @@ class UserController extends Controller
 
       if ($data->save()) {
         return response('ok');
-      }else {
-        return response('fail')
       }
+
+      return response('fail');
 
     }
 
