@@ -13,9 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-
+// Login Register
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
+Route::post('add-detail' , 'Api\UserController@addDetail');
+Route::put('update-detail' , 'Api\UserController@updateDetail');
+
+// Get Menu Siswa For Dashboard
 Route::get('menu/{kode}' , 'Api\UserController@menu');
 Route::get('mform/siswa' , 'Api\UserController@mformSiswa');
 Route::get('mform/admin' , 'Api\UserController@mformAdmin');

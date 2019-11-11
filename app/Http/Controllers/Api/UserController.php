@@ -193,5 +193,9 @@ class UserController extends Controller
 
     }
 
+    // public function addDetail(Request $request){
+    //
+    // }
+
 
 }
