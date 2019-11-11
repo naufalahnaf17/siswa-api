@@ -218,21 +218,6 @@ class UserController extends Controller
 
     }
 
-    public function update_profile($email,Request $request)
-    {
-
-      $data = User::where('email', '=' , $email);
-      $data->url_photo = $request->input('url_photo');
-
-      if ($data->save()) {
-        $res['message'] = "Success Mengubah Data";
-        return response($res);
-      }else {
-        $res['message'] = "Error 404";
-        return response($res);
-      }
-
-    }
 
 
 }

@@ -19,6 +19,8 @@ class User extends Authenticatable
         'name', 'email', 'password','url_photo',
     ];
 
+    protected $editable = 'url_photo';
+
     /**
      * The attributes that should be hidden for arrays.
      *
