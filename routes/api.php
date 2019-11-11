@@ -28,10 +28,10 @@ Route::delete('mform/delete/{kode_form}' , 'Api\UserController@deleteMform');
 Route::group(['middleware' => 'auth:api'], function() {
     //Detail Account
     Route::post('details', 'Api\UserController@details');
-    Route::put('details/{id}' , 'Api\UserController@set_profile');
+    Route::post('details/{id}' , 'Api\UserController@set_profile');
     Route::post('add-detail' , 'Api\UserController@addDetail');
     Route::put('update-detail' , 'Api\UserController@updateDetail');
-    
+
     // Crud Siswa
     Route::get('siswa','Api\SiswaController@index');
     Route::get('siswa/{id}','Api\SiswaController@spesifik');
