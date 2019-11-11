@@ -9,6 +9,7 @@ use App\User;
 use App\MenuForm;
 use Validator;
 use Illuminate\Support\Facades\DB;
+use App\Sis_Siswa;
 
 class UserController extends Controller
 {
@@ -193,9 +194,29 @@ class UserController extends Controller
 
     }
 
-    // public function addDetail(Request $request){
-    //
-    // }
+    public function addDetail(Request $request){
+
+      $data = new Sis_Siswa;
+      $data->nis = $request->input('nis');
+      $data->flag_aktif = $request->input('flag_aktif');
+      $data->kode_kelas = $request->input('kode_kelas');
+      $data->kode_akt = $request->input('kode_akt');
+      $data->tgl_lulus = $request->input('tgl_lulus');
+      $data->no_reg = $request->input('no_reg');
+      $data->kode_ta = $request->input('kode_ta');
+      $data->kode_pp = $request->input('kode_pp');
+      $data->tanggal = $request->input('tanggal');
+      $data->nama = $request->input('nama');
+
+      if ($data->save()) {
+        $res['message'] = "Success Menyimpan Data";
+        return response($res);
+      }else {
+        $res['message'] = "Gagal Menyimpan Data";
+        return response($res);
+      }
+
+    }
 
 
 }
