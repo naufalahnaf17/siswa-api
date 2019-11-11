@@ -63,6 +63,8 @@ class UserController extends Controller
 
       $data = Auth::user()->find($id);
       $data->name = $request->input('name');
+      $data->created_at = '2019-11-11 06:25:50.239';
+      $data->updated_at = '2019-11-11 06:25:50.239';
 
       if ($data->save()) {
         $res['message'] = "Success Mengubah Data";
