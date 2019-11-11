@@ -16,8 +16,6 @@ use Illuminate\Http\Request;
 // Login Register
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
-Route::post('add-detail' , 'Api\UserController@addDetail');
-Route::put('update-detail' , 'Api\UserController@updateDetail');
 
 // Get Menu Siswa For Dashboard
 Route::get('menu/{kode}' , 'Api\UserController@menu');
@@ -31,6 +29,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     //Detail Account
     Route::post('details', 'Api\UserController@details');
     Route::put('details/{id}' , 'Api\UserController@set_profile');
+    Route::post('add-detail' , 'Api\UserController@addDetail');
+    Route::put('update-detail' , 'Api\UserController@updateDetail');
 
     // Crud Siswa
     Route::get('siswa','Api\SiswaController@index');
