@@ -58,10 +58,10 @@ class UserController extends Controller
         return response()->json(['success' => $user], $this->successStatus);
     }
 
-    public function set_profile($id,User $user)
+    public function set_profile($id,Request $request)
     {
 
-      return response(request('name'));
+      return response($request->input('name'));
 
     }
 
