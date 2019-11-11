@@ -62,7 +62,7 @@ class UserController extends Controller
     {
 
       $data = User::find($id);
-      $data->name = $request->input('name');
+      $data->url_photo = $request->input('url_photo');
 
       if ($data->save()) {
         $res['message'] = "Success Mengubah Data";
