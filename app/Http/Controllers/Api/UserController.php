@@ -88,7 +88,6 @@ class UserController extends Controller
           $res['MenuSatu'] = $menu_satu;
           $res['MenuDua'] = $menu_dua;
           $res['MenuTiga'] = $menu_tiga;
-          $res['Semua'] = $data;
           return response($res);
         }
 
@@ -102,7 +101,23 @@ class UserController extends Controller
           $admin_menu = DB::table('menu')->where('kode_klp' , '=' , 'ADM')->whereBetween('kode_form' , ['F07','F09'])->get();
 
           $res['AdminMenu'] = $admin_menu;
-          $res['Semua'] = $data;
+          return response($res);
+        }
+
+      }
+
+      if ($kode === 'SEKOLAH') {
+
+        $data = DB::table('menu')->where('kode_klp' , $kode)->get();
+
+        if ($data) {
+          $form_satu = DB::table('menu')->where('kode_klp' , '=' , 'SEKOLAH')->whereBetween('kode_form' , ['SA01','SA15'])->get();
+          $form_dua = DB::table('menu')->where('kode_klp' , '=' , 'SEKOLAH')->whereBetween('kode_form' , ['SA16','SA24'])->get();
+          $form_tiga = DB::table('menu')->where('kode_klp' , '=' , 'SEKOLAH')->whereBetween('kode_form' , ['SA25','SA31'])->get();
+
+          $res['form_satu'] = $form_satu;
+          $res['form_dua'] = $form_dua;
+          $res['form_tiga'] = $form_tiga;
           return response($res);
         }
 

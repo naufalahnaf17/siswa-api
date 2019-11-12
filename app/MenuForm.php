@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MenuForm extends Model
 {
-    protected $table = "m_form";
+    protected $table = "menu";
     public $timestamps = false;
 
     public function nama_form(){
