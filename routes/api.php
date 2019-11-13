@@ -36,8 +36,11 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('siswa','Api\SiswaController@index');
     Route::get('siswa/{nis}','Api\SiswaController@spesifik');
     Route::post('siswa','Api\SiswaController@tambah');
-    Route::put('siswa/{id}','Api\SiswaController@edit');
-    Route::delete('siswa/{id}','Api\SiswaController@hapus');
+    Route::put('siswa/{nis}','Api\SiswaController@edit');
+    Route::delete('siswa/{nis}','Api\SiswaController@hapus');
+
+    // Crud Jadwal
+    Route::get('jadwal' , 'Api\JadwalController@jadwal');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');

@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
-use App\Siswa;
 use App\Sis_Siswa;
 
 class SiswaController extends Controller
@@ -53,7 +52,8 @@ class SiswaController extends Controller
     public function tambah(Request $request){
 
       $validator = Validator::make($request->all(), [
-          'nama' => 'required',
+          'nis' => 'required',
+          'kode_kelas' => 'required',
           'jurusan' => 'required'
       ]);
 
@@ -78,12 +78,12 @@ class SiswaController extends Controller
 
     }
 
-    public function edit($id , Request $request){
+    public function edit($nis , Request $request){
 
       $nama = $request->input('nama');
       $jurusan = $request->input('jurusan');
 
-      $data = Siswa::find($id);
+      $data = Siswa::find($nis);
       $data->nama = $nama;
       $data->jurusan = $jurusan;
 
@@ -97,9 +97,9 @@ class SiswaController extends Controller
 
     }
 
-    public function hapus($id){
+    public function hapus($nis){
 
-      $data = Siswa::find($id);
+      $data = Siswa::find($nis);
       if($data->delete()){
         $res['message'] = "Success!";
         return response($res);
