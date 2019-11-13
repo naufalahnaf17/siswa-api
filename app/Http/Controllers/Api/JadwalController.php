@@ -25,8 +25,6 @@ class JadwalController extends Controller
           ['kode_kelas', '=', 'XI-13RPL']
         ])->get();
 
-        $res['kelas XI - RPL'] = $kelas_11;
-
         $kelas_2tkj = Jadwal::where([
           ['kode_lokasi', '=', '12'],
           ['kode_pp', '=', 'yspte05'],
@@ -41,9 +39,9 @@ class JadwalController extends Controller
           ['kode_kelas', '=', 'XI-9TKJ']
         ])->get();
 
-        $res['kelas XI - TKJ'] = $kelas_9TKJ;
-
-
+        $res['XI-RPL'] = $kelas_11;
+        $res['XI-TKJ'] = $kelas_9TKJ;
+        $res['2-TKJ'] = $kelas_2tkj;
 
         return response($res);
       }else {
