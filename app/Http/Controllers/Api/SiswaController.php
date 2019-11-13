@@ -15,7 +15,11 @@ class SiswaController extends Controller
 
     public function index(){
 
-      $data = Sis_Siswa::where('kode_pp', '=' ,'yspte05')->get();
+      $data = Sis_Siswa::->where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05']
+      ])->get();
+
       if (count($data) > 0 ) {
         $res['message'] = "Success Mengambil Data";
         $res['value'] = $data;
