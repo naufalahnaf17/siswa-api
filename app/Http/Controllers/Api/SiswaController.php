@@ -8,13 +8,14 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
 use App\Siswa;
+use App\Sis_Siswa;
 
 class SiswaController extends Controller
 {
 
     public function index(){
 
-      $data = Siswa::all();
+      $data = Sis_Siswa::where('kode_pp', '=' ,'yspte05')->get();
       if (count($data) > 0 ) {
         $res['message'] = "Success Mengambil Data";
         $res['value'] = $data;
