@@ -31,8 +31,6 @@ class JadwalController extends Controller
           ['kode_kelas', '=', '2TKJ1']
         ])->get();
 
-        $res['kelas 2TKJ1'] = $kelas_2tkj;
-
         $kelas_9TKJ = Jadwal::where([
           ['kode_lokasi', '=', '12'],
           ['kode_pp', '=', 'yspte05'],
