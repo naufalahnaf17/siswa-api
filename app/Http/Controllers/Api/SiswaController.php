@@ -53,7 +53,8 @@ class SiswaController extends Controller
 
       $validator = Validator::make($request->all(), [
           'nis' => 'required',
-          'kode_kelas' => 'required'
+          'kode_kelas' => 'required',
+          'nama' => 'required',
       ]);
 
       if ($validator->fails()) {
