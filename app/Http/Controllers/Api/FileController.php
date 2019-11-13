@@ -24,10 +24,8 @@ class FileController extends Controller
     $photo = $request->file('photo');
     $ektensi = $photo->extension();
 
-    $extensi_gambar = ['png','jpg','jpeg'];
-
     try {
-      if ( in_array($ekstensi,$extensi_gambar) ) {
+      if ( $ektensi === 'jpeg' ) {
         $filename = str_random(10).'.'.$ektensi;
         $path = $request->file('photo')->move(public_path("/upload") , $filename);
         $photoURL = url('/api/file/download/'.$filename);
