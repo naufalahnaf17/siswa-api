@@ -18,8 +18,33 @@ class JadwalController extends Controller
       ])->get();
 
       if (count($data) > 0 ) {
-        $res['message'] = "Success Mengambil Data";
-        $res['value'] = $data;
+
+        $kelas_11 = Jadwal::where([
+          ['kode_lokasi', '=', '12'],
+          ['kode_pp', '=', 'yspte05'],
+          ['kode_kelas', '=', 'XI-13RPL']
+        ])->get();
+
+        $res['kelas XI - RPL'] = $kelas_11;
+
+        $kelas_2tkj = Jadwal::where([
+          ['kode_lokasi', '=', '12'],
+          ['kode_pp', '=', 'yspte05'],
+          ['kode_kelas', '=', '2TKJ1']
+        ])->get();
+
+        $res['kelas 2TKJ1'] = $kelas_2tkj;
+
+        $kelas_9TKJ = Jadwal::where([
+          ['kode_lokasi', '=', '12'],
+          ['kode_pp', '=', 'yspte05'],
+          ['kode_kelas', '=', 'XI-9TKJ']
+        ])->get();
+
+        $res['kelas XI - TKJ'] = $kelas_9TKJ;
+
+
+
         return response($res);
       }else {
         $res['message'] = "Data Kosong";
