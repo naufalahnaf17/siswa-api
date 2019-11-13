@@ -232,6 +232,8 @@ class SiswaController extends Controller
       $kode_lokasi = '12';
       $id_bank = $request->input('id_bank');
 
+      return response($nama);
+
       // Edit Data Function
       $data = Sis_Siswa::find($nis);
       $data->flag_aktif = $flag_aktif;
