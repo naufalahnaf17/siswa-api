@@ -231,7 +231,7 @@ class SiswaController extends Controller
       $telp_dokter = $request->input('telp_dokter');
       $kode_lokasi = '12';
       $id_bank = $request->input('id_bank');
-      
+
       // Edit Data Function
       $data = Sis_Siswa::find($nis);
       $data->flag_aktif = $flag_aktif;
@@ -298,7 +298,7 @@ class SiswaController extends Controller
 
     public function hapus($nis){
 
-      $data = Siswa::find($nis);
+      $data = Sis_Siswa::find($nis);
       if($data->delete()){
         $res['message'] = "Success!";
         return response($res);
