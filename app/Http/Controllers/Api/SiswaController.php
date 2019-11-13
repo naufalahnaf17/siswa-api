@@ -237,7 +237,7 @@ class SiswaController extends Controller
         ['kode_lokasi', '=', '12'],
         ['kode_pp', '=', 'yspte05'],
         ['nis', '=', $nis]
-      ])->get();
+      ])->first();
 
       $data->flag_aktif = $flag_aktif;
       $data->kode_kelas = $kode_kelas;
