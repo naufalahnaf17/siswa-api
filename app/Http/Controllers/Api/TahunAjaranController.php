@@ -80,6 +80,7 @@ class TahunAjaranController extends Controller
       $nama = $request->input('nama');
 
       $data = TahunAjaran::find($tgl_mulai);
+      return response($data);
       $data->flag_aktif = $flag_aktif;
 
     }
