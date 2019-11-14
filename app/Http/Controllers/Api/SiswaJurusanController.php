@@ -73,13 +73,9 @@ class SiswaJurusanController extends Controller
           return response()->json(['error' => $validator->errors()], 401);
       }
 
-      $kode_lokasi = '12';
-      $kode_pp = 'YSPTE05';
       $nama = $request->input('nama');
 
       $data = Sis_Jur::where('nama' , 'LIKE' , '%'.$nama_edit)->first();
-      $data->kode_lokasi = $kode_lokasi;
-      $data->kode_pp = $kode_pp;
       $data->nama = $nama;
 
       if ($data->save()) {
