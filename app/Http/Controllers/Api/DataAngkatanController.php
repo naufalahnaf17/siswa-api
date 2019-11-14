@@ -97,10 +97,10 @@ class DataAngkatanController extends Controller
       $data->nama = $nama;
 
       if ($data->save()) {
-        $res['message'] = "Success Menyimpan Data";
+        $res['message'] = "Success Mengubah Data";
         return response($res);
       }else {
-        $res['message'] = "Gagal Menyimpan Data";
+        $res['message'] = "Gagal Mengubah Data";
         return response($res);
       }
 

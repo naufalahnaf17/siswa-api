@@ -80,12 +80,18 @@ class SiswaJurusanController extends Controller
       $nama = $request->input('nama');
 
       $data = Sis_Jur::where('nama' , 'LIKE' , '%'.$nama_edit)->first();
-      return response($data);
       $data->kode_jur = $kode_jur;
       $data->kode_lokasi = $kode_lokasi;
       $data->kode_pp = $kode_pp;
       $data->nama = $nama;
 
+      if ($data->save()) {
+        $res['message'] = "Success Mengubah Data";
+        return response($res);
+      }else {
+        $res['message'] = "Gagal Mengubah Data";
+        return response($res);
+      }
 
     }
 
