@@ -54,6 +54,9 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('data-angkatan/{satu}/{dua}' , 'Api\DataAngkatanController@edit');
     Route::delete('data-angkatan/{satu}/{dua}' , 'Api\DataAngkatanController@hapus');
 
+    // Crud Siswa Jurusan
+    Route::get('siswa-jurusan' , 'Api\SiswaJurusanController@index');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
