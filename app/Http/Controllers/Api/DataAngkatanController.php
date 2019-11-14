@@ -65,4 +65,21 @@ class DataAngkatanController extends Controller
 
     }
 
+    public function hapus($tahun_satu,$tahun_dua)
+    {
+
+      return response($tahun_satu , $tahun_dua);
+
+      $data = DataAngkatan::find($kode_akt);
+      if($data->delete()){
+        $res['message'] = "Success Menghapus Data";
+        return response($res);
+      }
+      else{
+          $res['message'] = "Terjadi Kesalahan Saat Menghapus Data";
+          return response($res);
+      }
+
+    }
+
 }
