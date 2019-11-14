@@ -79,7 +79,12 @@ class SiswaJurusanController extends Controller
       $kode_pp = 'YSPTE05';
       $nama = $request->input('nama');
 
-      $data = Sis_Jur::find($kode_jur_edit);
+      $data = Sis_Jur::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05'],
+        ['kode_jur', '=', $kode_jur_edit]
+      ])->first();
+
       $data->kode_jur = $kode_jur;
       $data->kode_lokasi = $kode_lokasi;
       $data->kode_pp = $kode_pp;
