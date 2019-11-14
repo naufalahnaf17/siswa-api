@@ -65,10 +65,12 @@ class DataAngkatanController extends Controller
 
     }
 
-    public function hapus($nama)
+    public function hapus($satu,$dua)
     {
 
-      return response($nama);
+      $res['satu'] = $satu;
+      $res['dua'] = $dua;
+      return response($res);
 
       $data = DataAngkatan::find($kode_akt);
       if($data->delete()){
