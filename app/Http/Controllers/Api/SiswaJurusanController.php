@@ -15,7 +15,8 @@ class SiswaJurusanController extends Controller
 
       $data = Sis_Jur::where([
         ['kode_lokasi', '=', '12'],
-        ['kode_pp', '=', 'yspte05']
+        ['kode_pp', '=', 'yspte05'],
+        ['kode_jur', '=', 'MM']
       ])->get();
 
       if (count($data) > 0 ) {
