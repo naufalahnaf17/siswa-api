@@ -40,7 +40,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::delete('siswa/{nis}','Api\SiswaController@hapus');
 
     // Crud Jadwal
-    Route::get('jadwal' , 'Api\JadwalController@jadwal');
+    Route::get('jadwal' , 'Api\JadwalController@index');
+
+    // Crud Tahun Ajaran
+    Route::get('tahun-ajaran' , 'Api\TahunAjaranController@index');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');

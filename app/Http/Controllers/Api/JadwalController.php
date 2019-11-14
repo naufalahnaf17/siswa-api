@@ -9,7 +9,7 @@ use App\Jadwal;
 class JadwalController extends Controller
 {
 
-    public function jadwal()
+    public function index()
     {
 
       $data = Jadwal::where([
