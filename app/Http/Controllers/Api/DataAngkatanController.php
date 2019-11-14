@@ -69,9 +69,8 @@ class DataAngkatanController extends Controller
     {
 
       $tahun = $satu . '/' . $dua;
-      return response($tahun);
 
-      $data = DataAngkatan::find($kode_akt);
+      $data = DataAngkatan::find($tahun);
       if($data->delete()){
         $res['message'] = "Success Menghapus Data";
         return response($res);
