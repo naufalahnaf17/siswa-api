@@ -79,7 +79,7 @@ class TahunAjaranController extends Controller
       $kode_lokasi = '12';
       $nama = $request->input('nama');
 
-      $data = TahunAjaran::find($kode_ta);
+      $data = TahunAjaran::where('kode_ta',$kode_ta);
       return response($data);
 
     }
