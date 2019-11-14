@@ -75,7 +75,7 @@ class SiswaJurusanController extends Controller
 
       $nama = $request->input('nama');
 
-      $data = Sis_Jur::where('nama' , 'LIKE' , '%'.$nama_edit)->first();
+      $data = Sis_Jur::where('nama' , '=' , $nama_edit)->get();
       $data->nama = $nama;
 
       if ($data->save()) {
