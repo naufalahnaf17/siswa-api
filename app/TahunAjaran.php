@@ -8,5 +8,6 @@ class TahunAjaran extends Model
 {
   protected $table = "sis_ta";
   protected $primaryKey = "tgl_mulai";
+  public $incrementing = false;
   public $timestamps = false;
 }
