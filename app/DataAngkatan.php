@@ -8,5 +8,6 @@ class DataAngkatan extends Model
 {
   protected $table = "sis_angkat";
   protected $primaryKey = "kode_akt";
+  public $incrementing = false;
   public $timestamps = false;
 }
