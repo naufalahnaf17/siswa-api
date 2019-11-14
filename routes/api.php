@@ -48,6 +48,9 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('tahun-ajaran/{tgl_mulai}' , 'Api\TahunAjaranController@edit');
     Route::delete('tahun-ajaran/{tgl_mulai}' , 'Api\TahunAjaranController@hapus');
 
+    // Crud Data Angkatan
+    Route::get('data-angkatan' , 'Api\DataAngkatanController@index');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
