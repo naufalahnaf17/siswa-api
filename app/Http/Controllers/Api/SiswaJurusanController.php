@@ -62,4 +62,31 @@ class SiswaJurusanController extends Controller
 
     }
 
+    public function edit($nama_edit,Request $request)
+    {
+
+      $validator = Validator::make($request->all(), [
+          'kode_jur' => 'required',
+          'nama' => 'required',
+      ]);
+
+      if ($validator->fails()) {
+          return response()->json(['error' => $validator->errors()], 401);
+      }
+
+      $kode_jur = $request->input('kode_jur');
+      $kode_lokasi = '12';
+      $kode_pp = 'YSPTE05';
+      $nama = $request->input('nama');
+
+      $data = Sis_Jur::where('nama' , 'LIKE' , '%'.$nama_edit)->first();
+      return response($data);
+      $data->kode_jur = $kode_jur;
+      $data->kode_lokasi = $kode_lokasi;
+      $data->kode_pp = $kode_pp;
+      $data->nama = $nama;
+
+
+    }
+
 }
