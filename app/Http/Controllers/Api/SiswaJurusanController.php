@@ -100,4 +100,23 @@ class SiswaJurusanController extends Controller
 
     }
 
+    public function hapus($kode_jur)
+    {
+
+      $data = Sis_Jur::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05'],
+        ['kode_jur', '=', $kode_jur]
+      ])->first();
+
+      if ($data->delete()) {
+        $res['message'] = "Success Menghapus Data";
+        return response($res);
+      }else {
+        $res['message'] = "Gagal Menghapus Data";
+        return response($res);
+      }
+
+    }
+
 }

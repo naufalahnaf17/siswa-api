@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('siswa-jurusan' , 'Api\SiswaJurusanController@index');
     Route::post('siswa-jurusan' , 'Api\SiswaJurusanController@tambah');
     Route::put('siswa-jurusan/{kode_jur_edit}' , 'Api\SiswaJurusanController@edit');
+    Route::delete('siswa-jurusan/{kode_jur}' , 'Api\SiswaJurusanController@hapus');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
