@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     // Crud Data Angkatan
     Route::get('data-angkatan' , 'Api\DataAngkatanController@index');
     Route::post('data-angkatan' , 'Api\DataAngkatanController@tambah');
+    Route::put('data-angkatan/{satu}/{dua}' , 'Api\DataAngkatanController@edit');
     Route::delete('data-angkatan/{satu}/{dua}' , 'Api\DataAngkatanController@hapus');
 
     // Upload Image For Profile
