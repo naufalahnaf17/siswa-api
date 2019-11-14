@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     // Crud Siswa Jurusan
     Route::get('siswa-jurusan' , 'Api\SiswaJurusanController@index');
     Route::post('siswa-jurusan' , 'Api\SiswaJurusanController@tambah');
-    Route::put('siswa-jurusan/{nama}' , 'Api\SiswaJurusanController@edit');
+    Route::put('siswa-jurusan/{kode_jur_edit}' , 'Api\SiswaJurusanController@edit');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
