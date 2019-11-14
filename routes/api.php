@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     // Crud Tahun Ajaran
     Route::get('tahun-ajaran' , 'Api\TahunAjaranController@index');
     Route::post('tahun-ajaran' , 'Api\TahunAjaranController@tambah');
-    Route::put('tahun-ajaran/{kode_ta}' , 'Api\TahunAjaranController@edit');
+    Route::put('tahun-ajaran/{tgl_mulai}' , 'Api\TahunAjaranController@edit');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');

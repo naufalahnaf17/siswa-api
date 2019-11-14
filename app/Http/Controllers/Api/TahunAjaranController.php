@@ -69,18 +69,18 @@ class TahunAjaranController extends Controller
 
     }
 
-    public function edit($kode_ta , Request $request)
+    public function edit($tgl_mulai , Request $request)
     {
 
+      $kode_ta = $request->input('kode_ta');
       $kode_pp = 'YSPTE05';
-      $tgl_mulai = $request->input('tgl_mulai');
       $tgl_akhir = $request->input('tgl_akhir');
       $flag_aktif = '0';
       $kode_lokasi = '12';
       $nama = $request->input('nama');
 
-      $data = TahunAjaran::where('kode_ta' , '=' , $kode_ta)->first();
-      return response($data);
+      $data = TahunAjaran::find($tgl_mulai);
+      $data->flag_aktif = $flag_aktif;
 
     }
 
