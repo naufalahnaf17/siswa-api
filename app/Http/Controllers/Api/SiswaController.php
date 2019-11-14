@@ -233,7 +233,12 @@ class SiswaController extends Controller
       $id_bank = $request->input('id_bank');
 
       // Edit Data Function
-      $data = Sis_Siswa::find($nis);
+      $data = Sis_Siswa::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05'],
+        ['nis', '=', $nis]
+      ])->first();
+
       $data->flag_aktif = $flag_aktif;
       $data->kode_kelas = $kode_kelas;
       $data->kode_akt = $kode_akt;
@@ -298,7 +303,12 @@ class SiswaController extends Controller
 
     public function hapus($nis){
 
-      $data = Sis_Siswa::find($nis);
+      $data = Sis_Siswa::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05'],
+        ['nis', '=', $nis]
+      ])->first();
+
       if($data->delete()){
         $res['message'] = "Success!";
         return response($res);

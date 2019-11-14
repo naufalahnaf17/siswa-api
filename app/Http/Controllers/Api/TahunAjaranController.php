@@ -91,7 +91,12 @@ class TahunAjaranController extends Controller
       $kode_lokasi = '12';
       $nama = $request->input('nama');
 
-      $data = TahunAjaran::find($tgl_mulai);
+      $data = TahunAjaran::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05'],
+        ['tgl_mulai', '=', $tgl_mulai]
+      ])->first();
+
       $data->kode_ta = $kode_ta;
       $data->kode_pp = $kode_pp;
       $data->tgl_mulai = $tgl_mulai;
@@ -113,7 +118,12 @@ class TahunAjaranController extends Controller
     public function hapus($tgl_mulai)
     {
 
-      $data = TahunAjaran::find($tgl_mulai);
+      $data = TahunAjaran::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05'],
+        ['tgl_mulai', '=', $tgl_mulai]
+      ])->first();
+      
       if($data->delete()){
         $res['message'] = "Success Menghapus Data";
         return response($res);

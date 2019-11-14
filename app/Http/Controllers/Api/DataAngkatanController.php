@@ -88,7 +88,12 @@ class DataAngkatanController extends Controller
       $tahun = $satu . '/' . $dua;
       // Tahun Akt
 
-      $data = DataAngkatan::find($tahun);
+      $data = DataAngkatan::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05'],
+        ['kode_akt', '=', $tahun]
+      ])->first();
+
       $data->kode_akt = $kode_akt;
       $data->kode_lokasi = $kode_lokasi;
       $data->kode_pp = $kode_pp;
@@ -111,7 +116,12 @@ class DataAngkatanController extends Controller
 
       $tahun = $satu . '/' . $dua;
 
-      $data = DataAngkatan::find($tahun);
+      $data = DataAngkatan::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05'],
+        ['kode_akt', '=', $tahun]
+      ])->first();
+      
       if($data->delete()){
         $res['message'] = "Success Menghapus Data";
         return response($res);
