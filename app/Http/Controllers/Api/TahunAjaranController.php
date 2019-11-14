@@ -110,4 +110,19 @@ class TahunAjaranController extends Controller
 
     }
 
+    public function hapus($tgl_mulai)
+    {
+
+      $data = TahunAjaran::find($tgl_mulai);
+      if($data->delete()){
+        $res['message'] = "Success Menghapus Data";
+        return response($res);
+      }
+      else{
+          $res['message'] = "Terjadi Kesalahan Saat Menghapus Data";
+          return response($res);
+      }
+
+    }
+
 }

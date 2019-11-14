@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('tahun-ajaran' , 'Api\TahunAjaranController@index');
     Route::post('tahun-ajaran' , 'Api\TahunAjaranController@tambah');
     Route::put('tahun-ajaran/{tgl_mulai}' , 'Api\TahunAjaranController@edit');
+    Route::delete('tahun-ajaran/{tgl_mulai}' , 'Api\TahunAjaranController@hapus');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
