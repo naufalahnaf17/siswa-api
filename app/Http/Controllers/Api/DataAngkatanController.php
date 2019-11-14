@@ -27,4 +27,41 @@ class DataAngkatanController extends Controller
 
     }
 
+    public function tambah(Request $request)
+    {
+
+      $validator = Validator::make($request->all(), [
+          'kode_akt' => 'required',
+          'nama' => 'required',
+      ]);
+
+      if ($validator->fails()) {
+          return response()->json(['error' => $validator->errors()], 401);
+      }
+
+      $kode_akt = $request->input('kode_akt');
+      $kode_lokasi = '12';
+      $kode_pp = 'YSPTE05';
+      $kode_tingkat = '-';
+      $flag_aktif = '0';
+      $nama = $request->input('nama');
+
+      $data = new DataAngkatan;
+      $data->kode_akt = $kode_akt;
+      $data->kode_lokasi = $kode_lokasi;
+      $data->kode_pp = $kode_pp;
+      $data->kode_tingkat = $kode_tingkat;
+      $data->flag_aktif = $flag_aktif;
+      $data->nama = $nama;
+
+      if ($data->save()) {
+        $res['message'] = "Success Menyimpan Data";
+        return response($res);
+      }else {
+        $res['message'] = "Gagal Menyimpan Data";
+        return response($res);
+      }
+
+    }
+
 }
