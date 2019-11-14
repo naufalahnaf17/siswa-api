@@ -75,6 +75,7 @@ class SiswaJurusanController extends Controller
       }
 
       $kode_jur = $request->input('kode_jur');
+      return response($kode_jur);
       $kode_lokasi = '12';
       $kode_pp = 'YSPTE05';
       $nama = $request->input('nama');
