@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -44,8 +45,19 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
-    {
-        return parent::render($request, $exception);
-    }
+
+     public function render($request, Exception $exception)
+      {
+          $this->convertDefaultException($exception);
+
+          if ($exception instanceof HttpException) {
+              return $this->renderResponse($exception);
+          }
+          if ($exception instanceof MethodNotAllowedHttpException) {
+              return response('Salah Method Golbok' , 405);
+          }
+
+          return parent::render($request, $exception);
+      }
+
 }
