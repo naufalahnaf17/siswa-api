@@ -39,13 +39,26 @@ class DataSlotJamController extends Controller
           return response()->json(['error' => $validator->errors()], 401);
       }
 
+      $kode_slot = rand();
+      $kode_pp = 'YSPTE05';
       $nama = $request->input('nama');
-      $kode_slot = rand(0,1000)->unique();
-      return response($kode_slot);
+      $kode_lokasi = '12';
+      $jam_ke = $request->input('jam_ke');
 
       $data = new DataJam;
+      $data->kode_slot = $kode_slot;
+      $data->kode_pp = $kode_pp;
       $data->nama = $nama;
+      $data->kode_lokasi = $kode_lokasi;
+      $data->jam_ke = $jam_ke;
 
+      if ($data->save()) {
+        $res['message'] = "Success Menyimpan Data";
+        return response($res);
+      }else {
+        $res['message'] = "Gagal Menyimpan Data";
+        return response($res);
+      }
 
     }
 
