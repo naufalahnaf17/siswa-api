@@ -54,11 +54,14 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('data-angkatan/{satu}/{dua}' , 'Api\DataAngkatanController@edit');
     Route::delete('data-angkatan/{satu}/{dua}' , 'Api\DataAngkatanController@hapus');
 
-    // Crud Siswa Jurusan
+    // Crud Siswa Data Jurusan
     Route::get('siswa-jurusan' , 'Api\SiswaJurusanController@index');
     Route::post('siswa-jurusan' , 'Api\SiswaJurusanController@tambah');
     Route::put('siswa-jurusan/{kode_jur_edit}' , 'Api\SiswaJurusanController@edit');
     Route::delete('siswa-jurusan/{kode_jur}' , 'Api\SiswaJurusanController@hapus');
+
+    // Crud Siswa Data Kelas
+    Route::get('siswa-kelas' , 'Api\DataKelasController@index');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
