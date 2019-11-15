@@ -110,7 +110,7 @@ class DataSlotJamController extends Controller
 
       if ($data->delete()) {
         $res['message'] = "Success Menghapus Data";
-        return response($res,200);
+        return response($res);
       }else {
         $res['message'] = "Gagal Menghapus Data";
         return response($res);
