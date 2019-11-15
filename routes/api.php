@@ -67,7 +67,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::delete('siswa-kelas/{kode_kelas}' , 'Api\DataKelasController@hapus');
 
     // Crud Siswa Status Siswa
-    Route::get('status-siswa' , 'Api\StatusSiswaController@index');
+    Route::get('status-siswa' , 'Api\SiswaStatusController@index');
 
     // Crud Siswa Slot Jam Belajar
     Route::get('siswa-jam' , 'Api\DataSlotJamController@index');
