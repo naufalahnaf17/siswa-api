@@ -12,8 +12,11 @@ class DataSlotJamController extends Controller
 
     public function index()
     {
-      $angka = '4';
-      $data = DataJam::find($angka);
+
+      $data = DataJam::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05']
+      ])->get();
 
       if ( count($data) > 0 ) {
         $res['message'] = "Success Mengambil Data";
@@ -22,6 +25,7 @@ class DataSlotJamController extends Controller
       }else {
         $res['message'] = "Data Tidak Ditemukan Atau Kosong Di Database";
       }
+
     }
 
 }
