@@ -15,7 +15,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            return response($this->getStatusCode());
+            return response($this->setStatusCode(400) , 'Tikda ');
         }
     }
 }
