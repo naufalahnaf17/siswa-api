@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
      public function render($request, Exception $exception)
       {
           if ($exception instanceof MethodNotAllowedHttpException) {
-              return response('Salah Memakai Method' . $exception , 405);
+              return response('Salah Memakai Method' . $exception->getMessage() , 405);
           }
           if ($exception instanceof NotFoundHttpException) {
               return response('Token Nya Masukin Dulu Goblok' , 401);
