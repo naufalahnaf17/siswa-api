@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     // Crud Siswa Data Kelas
     Route::get('siswa-kelas' , 'Api\DataKelasController@index');
     Route::post('siswa-kelas' , 'Api\DataKelasController@tambah');
+    Route::put('siswa-kelas/{kode_kelas}' , 'Api\DataKelasController@edit');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
