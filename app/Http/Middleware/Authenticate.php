@@ -15,7 +15,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            return response($this->setStatusCode(400) , 'Tikda ');
+            abort(404 , 'Akun Tidak Ditemukan');
         }
     }
 }
