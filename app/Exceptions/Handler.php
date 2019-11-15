@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -50,6 +51,9 @@ class Handler extends ExceptionHandler
       {
           if ($exception instanceof MethodNotAllowedHttpException) {
               return response('Salah Method Golbok' , 405);
+          }
+          if ($exception instanceof NotFoundHttpException) {
+              return response('Token Nya Masukin Dulu Goblok');
           }
 
           return parent::render($request, $exception);
