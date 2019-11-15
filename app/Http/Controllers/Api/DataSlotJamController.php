@@ -40,7 +40,7 @@ class DataSlotJamController extends Controller
       }
 
       $nama = $request->input('nama');
-      $kode_slot = mt_random(1000);
+      $kode_slot = rand();
       return response($kode_slot);
 
       $data = new DataJam;
