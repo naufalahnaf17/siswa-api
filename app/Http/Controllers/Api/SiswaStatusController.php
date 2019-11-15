@@ -114,7 +114,7 @@ class SiswaStatusController extends Controller
 
     }
 
-    public function delete($kode_ss)
+    public function hapus($kode_ss)
     {
 
       try {
