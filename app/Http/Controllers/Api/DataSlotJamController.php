@@ -109,10 +109,10 @@ class DataSlotJamController extends Controller
       ])->first();
 
       if ($data->delete()) {
-        $res['message'] = "Success Menyimpan Data";
-        return response($res);
+        $res['message'] = "Success Menghapus Data";
+        return response($res,200);
       }else {
-        $res['message'] = "Gagal Menyimpan Data";
+        $res['message'] = "Gagal Menghapus Data";
         return response($res);
       }
 
