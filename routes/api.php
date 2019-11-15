@@ -64,6 +64,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('siswa-kelas' , 'Api\DataKelasController@index');
     Route::post('siswa-kelas' , 'Api\DataKelasController@tambah');
     Route::put('siswa-kelas/{kode_kelas}' , 'Api\DataKelasController@edit');
+    Route::delete('siswa-kelas/{kode_kelas}' , 'Api\DataKelasController@hapus');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');

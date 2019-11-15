@@ -113,6 +113,24 @@ class DataKelasController extends Controller
         return response($res);
       }
 
+    }
+
+    public function hapus($kode_kelas)
+    {
+
+      $data = DataKelas::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05'],
+        ['kode_kelas', '=', $kode_kelas]
+      ])->first();
+
+      if ($data->delete()) {
+        $res['message'] = "Success Menghapus Data";
+        return response($res);
+      }else {
+        $res['message'] = "Gagal Menghapus Data";
+        return response($res);
+      }
 
     }
 
