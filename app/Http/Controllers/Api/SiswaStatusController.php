@@ -24,6 +24,9 @@ class SiswaStatusController extends Controller
           $res['message'] = "Success Mengambil Data";
           $res['value'] = $data;
           return response($res);
+        }else {
+          $res['message'] = "Data Kosong Di Dalam Database";
+          return response($res);
         }
 
       } catch (\Exception $e) {
