@@ -14,8 +14,8 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
-        if (! $request->expectsJson()) {
-            return response('Kamu Belum Memasukan Token Di Header');
+        if (!$request->expectsJson()) {
+            abort(404 , 'Akun Tidak Ditemukan');
         }
     }
 }
