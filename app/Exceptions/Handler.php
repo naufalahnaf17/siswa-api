@@ -56,7 +56,6 @@ class Handler extends ExceptionHandler
           }
           if ($exception instanceof NotFoundHttpException) {
             $res['error'] = "Base URL yang Kamu Masukan Salah , Tidak Ada Base Url Yang Terkait";
-            $res['message'] = "You Should Insert Your Token Into Header Option In Postman On GuzzleHttp";
             return response($res,404);
           }
 
