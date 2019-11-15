@@ -70,6 +70,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     // Crud Siswa Slot Jam Belajar
     Route::get('siswa-jam' , 'Api\DataSlotJamController@index');
+    Route::post('siswa-jam' , 'Api\DataSlotJamController@tambah');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');

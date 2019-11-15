@@ -28,4 +28,25 @@ class DataSlotJamController extends Controller
 
     }
 
+    public function tambah(Request $request)
+    {
+
+      $validator = Validator::make($request->all(), [
+          'nama' => 'required',
+      ]);
+
+      if ($validator->fails()) {
+          return response()->json(['error' => $validator->errors()], 401);
+      }
+
+      $nama = $request->input('nama');
+      $kode_slot = mt_random(1000);
+      return response($kode_slot);
+
+      $data = new DataJam;
+      $data->nama = $nama;
+
+
+    }
+
 }
