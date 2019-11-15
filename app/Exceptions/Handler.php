@@ -51,11 +51,13 @@ class Handler extends ExceptionHandler
       {
           if ($exception instanceof MethodNotAllowedHttpException) {
             $res['error'] = "Salah Pakai Method";
-            $res['suggest'] = $exception->getMessage();
+            $res['message'] = $exception->getMessage();
             return response($res);
           }
           if ($exception instanceof NotFoundHttpException) {
-              return response('Token Nya Masukin Dulu Goblok' , 401);
+            $res['error'] = "Token Tidak Dimasukan / Belum Login";
+            $res['message'] = $exception->getMessage();
+            return response($res);
           }
 
           if (config('app.debug')) {
