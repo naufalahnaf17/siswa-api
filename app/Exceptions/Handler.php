@@ -52,12 +52,12 @@ class Handler extends ExceptionHandler
           if ($exception instanceof MethodNotAllowedHttpException) {
             $res['error'] = "Salah Pakai Method";
             $res['message'] = $exception->getMessage();
-            return response($res);
+            return response($res,401);
           }
           if ($exception instanceof NotFoundHttpException) {
             $res['error'] = "Token Tidak Dimasukan / Belum Login";
-            $res['message'] = $exception->getMessage();
-            return response($res);
+            $res['message'] = "You Should Insert Your Token Into Header Option In Postman On GuzzleHttp";
+            return response($res,403);
           }
 
           if (config('app.debug')) {
