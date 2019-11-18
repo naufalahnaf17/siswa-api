@@ -91,10 +91,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::delete('guru-status/{kode_status}' , 'Api\GuruStatusController@hapus');
 
     // Crud Siswa Mata Pelajaran
-    Route::get('sis-matpel' , 'Api\SiswaMatpelController@index');
-    Route::post('sis-matpel' , 'Api\SiswaMatpelController@tambah');
-    Route::put('sis-matpel/{kode_matpel}' , 'Api\SiswaMatpelController@edit');
-    Route::delete('sis-matpel/{kode_matpel}' , 'Api\SiswaMatpelController@hapus');
+    Route::get('siswa-matpel' , 'Api\SiswaMatpelController@index');
+    Route::post('siswa-matpel' , 'Api\SiswaMatpelController@tambah');
+    Route::put('siswa-matpel/{kode_matpel}' , 'Api\SiswaMatpelController@edit');
+    Route::delete('siswa-matpel/{kode_matpel}' , 'Api\SiswaMatpelController@hapus');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
