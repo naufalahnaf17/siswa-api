@@ -107,7 +107,7 @@ class GuruStatusController extends Controller
   public function hapus($kode_status)
   {
 
-    $data = JenisPenilaian::where([
+    $data = GuruStatus::where([
       ['kode_lokasi', '=', '12'],
       ['kode_pp', '=', 'yspte05'],
       ['kode_status', '=', $kode_status]
