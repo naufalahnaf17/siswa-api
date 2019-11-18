@@ -126,6 +126,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-hari/{kode_hari}' , 'Api\SiswaHariController@edit');
     Route::delete('siswa-hari/{kode_hari}' , 'Api\SiswaHariController@hapus');
 
+    // Crud Siswa Presensi
+    Route::get('siswa-presensi' , 'Api\SiswaPresensiController@index');
+    Route::post('siswa-presensi' , 'Api\SiswaPresensiController@tambah');
+    Route::put('siswa-presensi/{nis}' , 'Api\SiswaPresensiController@edit');
+    Route::delete('siswa-presensi/{nis}' , 'Api\SiswaPresensiController@hapus');
+
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
