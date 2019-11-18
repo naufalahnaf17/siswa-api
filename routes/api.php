@@ -120,6 +120,13 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-ujian/{tanggal}/{kode_matpel}' , 'Api\SiswaJadwalUjianController@edit');
     Route::delete('siswa-ujian/{tanggal}/{kode_matpel}' , 'Api\SiswaJadwalUjianController@hapus');
 
+    // Crud Siswa Hari
+    Route::get('siswa-hari' , 'Api\SiswaHariController@index');
+    Route::post('siswa-hari' , 'Api\SiswaHariController@tambah');
+    Route::put('siswa-hari/{kode_hari}' , 'Api\SiswaHariController@edit');
+    Route::delete('siswa-hari/{kode_hari}' , 'Api\SiswaHariController@hapus');
+
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
