@@ -102,6 +102,13 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-kkm/{kode_matpel}/{kode_tingkat}' , 'Api\SiswaKkmController@edit');
     Route::delete('siswa-kkm/{kode_matpel}/{kode_tingkat}' , 'Api\SiswaKkmController@hapus');
 
+    // Crud Guru Mata Pelajaran
+    Route::get('guru-matpel' , 'Api\GuruMatpelController@index');
+    Route::post('guru-matpel' , 'Api\GuruMatpelController@tambah');
+    Route::put('guru-matpel/{nik}' , 'Api\GuruMatpelController@edit');
+    Route::delete('guru-matpel/{nik}' , 'Api\GuruMatpelController@hapus');
+
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
