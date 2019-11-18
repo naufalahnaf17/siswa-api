@@ -96,6 +96,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-matpel/{kode_matpel}' , 'Api\SiswaMatpelController@edit');
     Route::delete('siswa-matpel/{kode_matpel}' , 'Api\SiswaMatpelController@hapus');
 
+    // Crud Siswa KKM Nilai
+    Route::get('siswa-kkm' , 'Api\SiswaKkmController@index');
+    Route::post('siswa-kkm' , 'Api\SiswaKkmController@tambah');
+    Route::put('siswa-kkm/{kode_matpel}/{kode_tingkat}' , 'Api\SiswaKkmController@edit');
+    Route::delete('siswa-kkm/{kode_matpel}/{kode_tingkat}' , 'Api\SiswaKkmController@hapus');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
