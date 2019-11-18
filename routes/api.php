@@ -78,6 +78,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-jam/{kode_slot}' , 'Api\DataSlotJamController@edit');
     Route::delete('siswa-jam/{kode_slot}' , 'Api\DataSlotJamController@hapus');
 
+    // Crud Siswa Jenis Penilaian
+    Route::get('jenis-penilaian' , 'Api\JenisPenilaianController@index');
+    Route::post('jenis-penilaian' , 'Api\JenisPenilaianController@tambah');
+    Route::put('jenis-penilaian/{kode_jenis}' , 'Api\JenisPenilaianController@edit');
+    Route::delete('jenis-penilaian/{kode_jenis}' , 'Api\JenisPenilaianController@hapus');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
