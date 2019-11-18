@@ -92,7 +92,6 @@ class SiswaPresensiController extends Controller
         'kode_kelas' => 'required',
         'tanggal' => 'required',
         'tgl_input' => 'required',
-        'nis' => 'required',
         'status' => 'required',
         'keterangan' => 'required',
         'jenis_absen' => 'required',
@@ -106,7 +105,6 @@ class SiswaPresensiController extends Controller
     $kode_kelas = $request->input('kode_kelas');
     $tanggal = $request->input('tanggal');
     $tgl_input = $request->input('tgl_input');
-    $nis = $request->input('nis');
     $status = $request->input('status');
     $keterangan = $request->input('keterangan');
     $kode_lokasi = '12';
@@ -125,7 +123,6 @@ class SiswaPresensiController extends Controller
     $data->kode_kelas = $kode_kelas;
     $data->tanggal = $tanggal;
     $data->tgl_input = $tgl_input;
-    $data->nis = $nis;
     $data->status = $status;
     $data->keterangan = $keterangan;
     $data->kode_lokasi = $kode_lokasi;
