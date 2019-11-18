@@ -114,6 +114,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-kalender/{agenda}' , 'Api\SiswaKalenderController@edit');
     Route::delete('siswa-kalender/{agenda}' , 'Api\SiswaKalenderController@hapus');
 
+    // Crud Siswa Jadwal Ujian
+    Route::get('siswa-ujian' , 'Api\SiswaJadwalUjianController@index');
+    Route::post('siswa-ujian' , 'Api\SiswaJadwalUjianController@tambah');
+    Route::put('siswa-ujian/{tanggal}/{kode_matpel}' , 'Api\SiswaJadwalUjianController@edit');
+    Route::delete('siswa-ujian/{tanggal}/{kode_matpel}' , 'Api\SiswaJadwalUjianController@hapus');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
