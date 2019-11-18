@@ -122,7 +122,7 @@ class SiswaKalenderController extends Controller
     $data = SiswaKalender::where([
       ['kode_lokasi', '=', '12'],
       ['kode_pp', '=', 'yspte05'],
-      ['agenda', 'LIKE', '%'.$agenda_edit.'%']
+      ['agenda', 'LIKE', '%'.$agenda.'%']
     ])->first();
 
     if($data->delete()){
