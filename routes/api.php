@@ -108,6 +108,11 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('guru-matpel/{nik}' , 'Api\GuruMatpelController@edit');
     Route::delete('guru-matpel/{nik}' , 'Api\GuruMatpelController@hapus');
 
+    // Crud Siswa Kalender Akademik
+    Route::get('siswa-kalender' , 'Api\SiswaKalenderController@index');
+    Route::post('siswa-kalender' , 'Api\SiswaKalenderController@tambah');
+    Route::put('siswa-kalender/{agenda}' , 'Api\SiswaKalenderController@edit');
+    Route::delete('siswa-kalender/{agenda}' , 'Api\SiswaKalenderController@hapus');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
