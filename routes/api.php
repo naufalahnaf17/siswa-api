@@ -84,6 +84,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('jenis-penilaian/{kode_jenis}' , 'Api\JenisPenilaianController@edit');
     Route::delete('jenis-penilaian/{kode_jenis}' , 'Api\JenisPenilaianController@hapus');
 
+    // Crud Guru Status
+    Route::get('guru-status' , 'Api\GuruStatusController@index');
+    Route::post('guru-status' , 'Api\GuruStatusController@tambah');
+    Route::put('guru-status/{kode_status}' , 'Api\GuruStatusController@edit');
+    Route::delete('guru-status/{kode_status}' , 'Api\GuruStatusController@hapus');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
