@@ -132,6 +132,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-presensi/{nis}' , 'Api\SiswaPresensiController@edit');
     Route::delete('siswa-presensi/{nis}' , 'Api\SiswaPresensiController@hapus');
 
+    // Crud Siswa Nilai
+    Route::get('siswa-nilai' , 'Api\SiswaNilaiController@index');
+    Route::post('siswa-nilai' , 'Api\SiswaNilaiController@tambah');
+    Route::put('siswa-nilai/{nis}/{no_bukti}' , 'Api\SiswaNilaiController@edit');
+    Route::delete('siswa-nilai/{nis}/{no_bukti}' , 'Api\SiswaNilaiController@hapus');
+
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
