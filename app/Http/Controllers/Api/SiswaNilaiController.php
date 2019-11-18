@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator;
-use SiswaNilai;
+use App\SiswaNilai;
 
 class SiswaNilaiController extends Controller
 {
