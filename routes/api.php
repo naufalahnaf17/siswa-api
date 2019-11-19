@@ -138,6 +138,11 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-nilai/{nis}/{no_bukti}' , 'Api\SiswaNilaiController@edit');
     Route::delete('siswa-nilai/{nis}/{no_bukti}' , 'Api\SiswaNilaiController@hapus');
 
+    // Crud Ekstrakulikuler Siswa
+    Route::get('siswa-ekskul' , 'Api\SiswaEkskulController@index');
+    Route::post('siswa-ekskul' , 'Api\SiswaEkskulController@tambah');
+    Route::put('siswa-ekskul/{nis}/{kode_jenis}' , 'Api\SiswaEkskulController@edit');
+    Route::delete('siswa-ekskul/{nis}/{kode_jenis}' , 'Api\SiswaEkskulController@hapus');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
