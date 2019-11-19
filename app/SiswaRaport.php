@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SiswaRaport extends Model
 {
 
-  protected $table = "sis_prestasi";
+  protected $table = "sis_raport_m";
   protected $primaryKey = "nis";
   public $incrementing = false;
   public $timestamps = false;
