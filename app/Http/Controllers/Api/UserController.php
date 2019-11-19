@@ -57,11 +57,15 @@ class UserController extends Controller
         $user->url_photo = $url_photo;
         $user->kode_menu = $kode_menu;
 
-        $success['token'] =  $user->createToken('Breakpoin Appliction')->accessToken;
-        $success['name'] =  $user->name;
-        $success['id'] = $user->id;
+        if ($user->save()) {
+          $success['token'] =  $user->createToken('Breakpoin Appliction')->accessToken;
+          $success['name'] =  $user->name;
+          $success['id'] = $user->id;
+          return response()->json(['success' => $success], $this->successStatus);
+        }else {
+          return response('gagal saat daftar');
+        }
 
-        return response()->json(['success' => $success], $this->successStatus);
     }
 
 
