@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
 use App\Sis_Siswa;
+use App\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class SiswaController extends Controller
 {
@@ -169,8 +172,21 @@ class SiswaController extends Controller
       $data->id_bank = $id_bank;
 
       if ($data->save()) {
-        $res['message'] = "Success Menyimpan Data";
-        return response($res);
+        $penampung_nama = strtolower($nama);
+        $nama_asli_siswa = str_replace(' ', '', $penampung_nama);
+
+        $input = $request->all();
+        $input['name'] = $nama_asli_siswa;
+        $input['email'] = $nama_asli_siswa.'@gmail.com';
+        $input['password'] = bcrypt($nis);
+        $input['url_photo'] = 'http://laravel.simkug.com/siswa-api/public/api/file/download/ML5nbHMEzI.png';
+        $input['kode_menu'] = 'SISWA';
+        $user = User::create($input);
+
+        if ($user) {
+          $res['message'] = "Success Menyimpan Data";
+          return response($res);
+        }
       }else {
         $res['message'] = "Gagal Menyimpan Data";
         return response($res);
