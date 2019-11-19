@@ -60,7 +60,6 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $nis = $user['nis'];
-        return response($nis);
 
         try {
           $data = Sis_Siswa::where([
@@ -70,7 +69,7 @@ class UserController extends Controller
           ])->get();
 
           if (count($data) > 0 ) {
-            $res['success'] = $user;
+            
             $res['detail'] = $data;
           }else {
             $res['message'] = "Data Tidak Di Temukan";
