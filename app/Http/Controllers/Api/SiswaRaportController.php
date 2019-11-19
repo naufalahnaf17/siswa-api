@@ -75,12 +75,13 @@ class SiswaRaportController extends Controller
     }
 
     $input = $request->all();
+    return response($input['nis']);
     $input['kode_lokasi'] = '12';
     $input['kode_pp'] = 'YSPTE05';
     $data = SiswaRaport::where('nis',$nis_edit)->where('kode_pp','YSPTE05')->update(
       ['kode_sem' => $input['kode_sem']],
       ['kode_kelas' => $input['kode_kelas']],
-      ['nis' => $input['nis']],
+      ['nis' => $input['nis']]
     );
 
     if ($data) {
