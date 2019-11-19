@@ -77,13 +77,7 @@ class SiswaRaportController extends Controller
     $input = $request->all();
     $input['kode_lokasi'] = '12';
     $input['kode_pp'] = 'YSPTE05';
-    $data = SiswaRaport::where('nis',$nis_edit)->where('kode_pp','YSPTE05')->update(
-      ['no_bukti' => $input['no_bukti']],
-      ['kode_ta' => $input['kode_ta']],
-      ['kode_sem' => $input['kode_sem']],
-      ['kode_kelas' => $input['kode_kelas']],
-      ['nis' => $input['nis']]
-    );
+    $data = SiswaRaport::where('nis',$nis_edit)->where('kode_pp','YSPTE05')->update(['kode_sem' => $input['kode_sem']]);
 
     if ($data) {
       $res['message'] = "Success Mengubah Data";
