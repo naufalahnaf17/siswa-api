@@ -63,11 +63,7 @@ class SiswaRaportController extends Controller
   {
 
     $validator = Validator::make($request->all(), [
-        'no_bukti' => 'required',
-        'kode_ta' => 'required',
         'kode_sem' => 'required',
-        'kode_kelas' => 'required',
-        'nis' => 'required',
     ]);
 
     if ($validator->fails()) {
