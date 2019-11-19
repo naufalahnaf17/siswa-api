@@ -41,32 +41,17 @@ class UserController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
 
-        $id = rand(100,10000);
-        $name = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $url_photo = 'http://laravel.simkug.com/siswa-api/public/api/file/download/ML5nbHMEzI.png';
-        $kode_menu = 'SISWA';
-        $hash_password = bcrypt($password);
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $input['url_photo'] = 'http://laravel.simkug.com/siswa-api/public/api/file/download/ML5nbHMEzI.png';
+        $input['kode_menu'] = 'SISWA';
+        $user = User::create($input);
 
-        $user=DB::table('users')->insert([
-          'id' => $id,
-          'name' => $name,
-          'email' => $email,
-          'password' => $hash_password,
-          'url_photo' => $url_photo,
-          'kode_menu' => $kode_menu
-        ]);
+        $success['token'] =  $user->createToken('Breakpoin Appliction')->accessToken;
+        $success['name'] =  $user->name;
+        $success['id'] = $user->id;
 
-        if ($user) {
-          $success['token'] =  $user->createToken('Breakpoin Appliction')->accessToken;
-          $success['name'] =  $user->name;
-          $success['id'] = $user->id;
-          return response()->json(['success' => $success], $this->successStatus);
-        }else {
-          return response('gagal saat daftar');
-        }
-
+        return response()->json(['success' => $success], $this->successStatus);
     }
 
 
