@@ -9,7 +9,6 @@ use App\User;
 use Validator;
 use App\Sis_Siswa;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
 class SiswaController extends Controller
 {
