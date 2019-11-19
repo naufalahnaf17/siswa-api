@@ -179,6 +179,7 @@ class SiswaController extends Controller
         $input['password'] = bcrypt($nis);
         $input['url_photo'] = 'http://laravel.simkug.com/siswa-api/public/api/file/download/ML5nbHMEzI.png';
         $input['kode_menu'] = 'SISWA';
+        $input['nis'] = $nis;
         $user = User::create($input);
 
         if ($user) {
