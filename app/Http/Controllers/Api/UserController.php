@@ -69,7 +69,9 @@ class UserController extends Controller
           ])->get();
 
           if (count($data) > 0 ) {
+            $res['success'] = $user;
             $res['detail'] = $data;
+            return response($res);
           }else {
             $res['message'] = "Data Tidak Di Temukan";
             return response($res);
