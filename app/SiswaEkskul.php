@@ -8,7 +8,7 @@ class SiswaEkskul extends Model
 {
 
   protected $table = "sis_ekskul";
-  protected $primaryKey = "kode_hari";
+  protected $primaryKey = "nis";
   public $incrementing = false;
   public $timestamps = false;
 
