@@ -144,6 +144,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-ekskul/{nis}/{kode_jenis}' , 'Api\SiswaEkskulController@edit');
     Route::delete('siswa-ekskul/{nis}/{kode_jenis}' , 'Api\SiswaEkskulController@hapus');
 
+    // Crud Prestasi Siswa
+    Route::get('siswa-prestasi' , 'Api\SiswaPrestasiController@index');
+    Route::post('siswa-prestasi' , 'Api\SiswaPrestasiController@tambah');
+    Route::put('siswa-prestasi/{nis}/{kode_jenis}' , 'Api\SiswaPrestasiController@edit');
+    Route::delete('siswa-prestasi/{nis}/{kode_jenis}' , 'Api\SiswaPrestasiController@hapus');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
