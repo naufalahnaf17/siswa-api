@@ -306,6 +306,8 @@ class SiswaController extends Controller
       $data->kode_lokasi = $kode_lokasi;
       $data->id_bank = $id_bank;
 
+      return response($nama);
+
       if ($data->save()) {
         $res['message'] = "Success Mengubah Data";
         return response($res);
