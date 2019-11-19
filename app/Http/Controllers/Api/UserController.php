@@ -59,8 +59,25 @@ class UserController extends Controller
     public function details()
     {
         $user = Auth::user();
-        $res['success'] = $user;
-        return response($res);
+        $nis = $user['nis'];
+
+        try {
+          $data = Sis_Siswa::where([
+            ['kode_lokasi', '=', '12'],
+            ['kode_pp', '=', 'yspte05'],
+            ['nis', '=', $nis]
+          ])->get();
+
+          if (count($data) > 0 ) {
+            $res['success'] = $user;
+            $res['detail'] = $data;
+          }else {
+            $res['message'] = "Data Tidak Di Temukan";
+            return response($res);
+          }
+        } catch (\Exception $e) {
+          return respose('Nis Null / Anda Bukan Siswa');
+        }
     }
 
     public function set_profile($id,Request $request)
