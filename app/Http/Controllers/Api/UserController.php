@@ -62,14 +62,13 @@ class UserController extends Controller
         $nis = $user['nis'];
 
         try {
-          $data = Sis_Siswa::where([
+          $data = DB::table('sis_siswa')->where([
             ['kode_lokasi', '=', '12'],
-            ['kode_pp', '=', 'yspte05'],
+            ['kode_pp', '=', 'YSPTE05'],
             ['nis', '=', $nis]
           ])->get();
 
           if (count($data) > 0 ) {
-            
             $res['detail'] = $data;
           }else {
             $res['message'] = "Data Tidak Di Temukan";
