@@ -12,4 +12,8 @@ class SiswaPrestasi extends Model
   public $incrementing = false;
   public $timestamps = false;
 
+  protected $fillable = [
+      'no_bukti', 'nik_user', 'tgl_input','nis','tanggal','keterangan','tempat','kode_kategori','jenis'
+  ];
+
 }
