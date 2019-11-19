@@ -71,7 +71,7 @@ class UserController extends Controller
           if (count($data) > 0 ) {
             $res['message'] = "Success Mengambil Data";
             $res['value'] = $data;
-            return response($res);
+            return response()->json(['success' => $user], $res);
           }else {
             $res['message'] = "Data Tidak Di Temukan";
             return response($res);
