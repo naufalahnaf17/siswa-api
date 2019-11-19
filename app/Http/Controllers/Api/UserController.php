@@ -41,11 +41,19 @@ class UserController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
 
-        $request->kode_menu = 'SISWA';
-        $request->url_photo = 'http://laravel.simkug.com/siswa-api/public/api/file/download/EwzR37LESY.png';
-        $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $url_photo = 'http://laravel.simkug.com/siswa-api/public/api/file/download/ML5nbHMEzI.png';
+        $kode_menu = 'SISWA';
+        $hash_password = bcrypt($password);
+
+        $user = new User;
+        $user->name = $name;
+        $user->email = $email;
+        $user->password = $hash_password;
+        $user->url_photo = $url_photo;
+        $user->kode_menu = $kode_menu;
 
         $success['token'] =  $user->createToken('Breakpoin Appliction')->accessToken;
         $success['name'] =  $user->name;
