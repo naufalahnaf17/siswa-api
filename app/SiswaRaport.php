@@ -13,13 +13,7 @@ class SiswaRaport extends Model
   public $timestamps = false;
 
   protected $fillable = [
-      'no_bukti',
-      'kode_ta',
-      'kode_sem',
-      'kode_kelas',
-      'nis',
-      'kode_pp',
-      'kode_lokasi',
+    'no_bukti','kode_ta','kode_sem','kode_kelas','nis','kode_pp','kode_lokasi',
   ];
 
 }
