@@ -49,15 +49,16 @@ class UserController extends Controller
         $kode_menu = 'SISWA';
         $hash_password = bcrypt($password);
 
-        $user = new User;
-        $user->id = $id;
-        $user->name = $name;
-        $user->email = $email;
-        $user->password = $hash_password;
-        $user->url_photo = $url_photo;
-        $user->kode_menu = $kode_menu;
+        $user=DB::table('users')->insert([
+          'id' => $id,
+          'name' => $name,
+          'email' => $email,
+          'password' => $hash_password,
+          'url_photo' => $url_photo,
+          'kode_menu' => $kode_menu
+        ]);
 
-        if ($user->save()) {
+        if ($user) {
           $success['token'] =  $user->createToken('Breakpoin Appliction')->accessToken;
           $success['name'] =  $user->name;
           $success['id'] = $user->id;
