@@ -97,13 +97,13 @@ class SiswaPrestasiController extends Controller
 
   }
 
-  public function hapus($kode_jur)
+  public function hapus($nis)
   {
 
     $data = SiswaPrestasi::where([
       ['kode_lokasi', '=', '12'],
       ['kode_pp', '=', 'yspte05'],
-      ['kode_jur', '=', $kode_jur]
+      ['nis', '=', $nis]
     ])->first();
 
     if ($data->delete()) {
