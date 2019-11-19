@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Validator;
 use App\Sis_Siswa;
-use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
