@@ -41,6 +41,8 @@ class UserController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
 
+        $request->kode_menu = 'SISWA';
+        $request->url_photo = 'http://laravel.simkug.com/siswa-api/public/api/file/download/EwzR37LESY.png';
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
