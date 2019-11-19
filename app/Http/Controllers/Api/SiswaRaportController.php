@@ -63,7 +63,11 @@ class SiswaRaportController extends Controller
   {
 
     $validator = Validator::make($request->all(), [
+        'no_bukti' => 'required',
+        'kode_ta' => 'required',
         'kode_sem' => 'required',
+        'kode_kelas' => 'required',
+        'nis' => 'required',
     ]);
 
     if ($validator->fails()) {
@@ -71,7 +75,13 @@ class SiswaRaportController extends Controller
     }
 
     $input = $request->all();
-    $data = SiswaRaport::where('nis',$nis_edit)->update(['kode_sem' => $input['kode_sem']]);
+    $input['kode_lokasi'] = '12';
+    $input['kode_pp'] = 'YSPTE05';
+    $data = SiswaRaport::where('nis',$nis_edit)->where('kode_pp','YSPTE05')->update(
+      ['kode_sem' => $input['kode_sem']],
+      ['kode_kelas' => $input['kode_kelas']],
+      ['nis' => $input['nis']]
+    );
 
     if ($data) {
       $res['message'] = "Success Mengubah Data";
