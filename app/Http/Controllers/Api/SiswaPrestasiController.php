@@ -85,7 +85,7 @@ class SiswaPrestasiController extends Controller
     $input = $request->all();
     $input['kode_lokasi'] = '12';
     $input['kode_pp'] = 'YSPTE05';
-    $data = SiswaPrestasi::where('nis',$nis_edit)->where('kode_pp' , 'YSPTE05')->where('kode_pp' , '12')->update($input);
+    $data = SiswaPrestasi::where('nis',$nis_edit)->where('kode_pp' , 'YSPTE05')->where('kode_pp' , '12')->update(array($input));
 
     if ($data) {
       $res['message'] = "Success Mengubah Data";
