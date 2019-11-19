@@ -41,6 +41,7 @@ class UserController extends Controller
             return response()->json(['error' => $validator->errors()], 401);
         }
 
+        $id = rand(100,10000);
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
@@ -49,6 +50,7 @@ class UserController extends Controller
         $hash_password = bcrypt($password);
 
         $user = new User;
+        $user->id = $id;
         $user->name = $name;
         $user->email = $email;
         $user->password = $hash_password;
