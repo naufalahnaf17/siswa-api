@@ -63,35 +63,31 @@ class SiswaPrestasiController extends Controller
 
   }
 
-  public function edit($kode_jur_edit,Request $request)
+  public function edit($nis_edit,Request $request)
   {
 
     $validator = Validator::make($request->all(), [
-        'kode_jur' => 'required',
-        'nama' => 'required',
+        'no_bukti' => 'required',
+        'nik_user' => 'required',
+        'tgl_input' => 'required',
+        'nis' => 'required',
+        'tanggal' => 'required',
+        'keterangan' => 'required',
+        'tempat' => 'required',
+        'kode_kategori' => 'required',
+        'jenis' => 'required',
     ]);
 
     if ($validator->fails()) {
         return response()->json(['error' => $validator->errors()], 401);
     }
 
-    $kode_jur = $request->input('kode_jur');
-    $kode_lokasi = '12';
-    $kode_pp = 'YSPTE05';
-    $nama = $request->input('nama');
+    $input = $request->all();
+    $input['kode_lokasi'] = '12';
+    $input['kode_pp'] = 'YSPTE05';
+    $data = SiswaPrestasi::where('nis',$nis)->where('kode_pp' , 'YSPTE05')->where('kode_pp' , '12')->update($input);
 
-    $data = SiswaPrestasi::where([
-      ['kode_lokasi', '=', '12'],
-      ['kode_pp', '=', 'yspte05'],
-      ['kode_jur', '=', $kode_jur_edit]
-    ])->first();
-
-    $data->kode_jur = $kode_jur;
-    $data->kode_lokasi = $kode_lokasi;
-    $data->kode_pp = $kode_pp;
-    $data->nama = $nama;
-
-    if ($data->save()) {
+    if ($data) {
       $res['message'] = "Success Mengubah Data";
       return response($res);
     }else {
