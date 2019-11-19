@@ -60,6 +60,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $nis = $user['nis'];
+        return response($nis);
 
         try {
           $data = Sis_Siswa::where([
