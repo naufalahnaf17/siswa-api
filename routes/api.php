@@ -150,6 +150,12 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-prestasi/{nis}' , 'Api\SiswaPrestasiController@edit');
     Route::delete('siswa-prestasi/{nis}' , 'Api\SiswaPrestasiController@hapus');
 
+    // Crud Raport Siswa
+    Route::get('siswa-raport' , 'Api\SiswaRaportController@index');
+    Route::post('siswa-raport' , 'Api\SiswaRaportController@tambah');
+    Route::put('siswa-raport/{nis}' , 'Api\SiswaRaportController@edit');
+    Route::delete('siswa-raport/{nis}' , 'Api\SiswaRaportController@hapus');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
