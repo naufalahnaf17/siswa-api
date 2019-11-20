@@ -37,7 +37,7 @@ class JadwalController extends Controller
           ['kode_kelas', '=', 'XI-9TKJ']
         ])->get();
 
-        $res['XI-RPL'] = $kelas_11->sis_slot->nama;
+        $res['XI-RPL'] = $kelas_11;
         return response($res);
         $res['XI-TKJ'] = $kelas_9TKJ;
         $res['2-TKJ'] = $kelas_2tkj;
