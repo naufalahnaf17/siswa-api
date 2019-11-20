@@ -31,23 +31,31 @@ class JadwalController extends Controller
         })
         ->get();
 
-        $kelas_2tkj = Jadwal::where([
-          ['kode_lokasi', '=', '12'],
-          ['kode_pp', '=', 'yspte05'],
-          ['kode_kelas', '=', '2TKJ1']
-        ])->get();
+        $kelas_2tkj = DB::table('sis_jadwal')
+        ->join('sis_slot', function ($join) {
+            $join->on('sis_jadwal.kode_slot', '=', 'sis_slot.kode_slot')
+                 ->where([
+                   ['sis_jadwal.kode_lokasi', '=', '12'],
+                   ['sis_jadwal.kode_pp', '=', 'yspte05'],
+                   ['sis_jadwal.kode_kelas', '=', '2TKJ1']
+                 ]);
+        })
+        ->get();
 
-        $kelas_9TKJ = Jadwal::where([
-          ['kode_lokasi', '=', '12'],
-          ['kode_pp', '=', 'yspte05'],
-          ['kode_kelas', '=', 'XI-9TKJ']
-        ])->get();
+        $kelas_9TKJ = DB::table('sis_jadwal')
+        ->join('sis_slot', function ($join) {
+            $join->on('sis_jadwal.kode_slot', '=', 'sis_slot.kode_slot')
+                 ->where([
+                   ['sis_jadwal.kode_lokasi', '=', '12'],
+                   ['sis_jadwal.kode_pp', '=', 'yspte05'],
+                   ['sis_jadwal.kode_kelas', '=', 'XI-9TKJ']
+                 ]);
+        })
+        ->get();
 
         $res['XI-RPL'] = $kelas_11;
-        return response($res);
         $res['XI-TKJ'] = $kelas_9TKJ;
         $res['2-TKJ'] = $kelas_2tkj;
-
         return response($res);
       }else {
         $res['message'] = "Data Kosong";
