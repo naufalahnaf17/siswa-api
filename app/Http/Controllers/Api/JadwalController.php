@@ -23,7 +23,11 @@ class JadwalController extends Controller
         $kelas_11 = DB::table('sis_jadwal')
         ->join('sis_slot', function ($join) {
             $join->on('sis_jadwal.kode_slot', '=', 'sis_slot.kode_slot')
-                 ->where('sis_jadwal.kode_pp', '=', 'YSPTE05');
+                 ->where([
+                   ['sis_jadwal.kode_lokasi', '=', '12'],
+                   ['sis_jadwal.kode_pp', '=', 'yspte05'],
+                   ['sis_jadwal.kode_kelas', '=', 'XI-13RPL']
+                 ]);
         })
         ->get();
 
