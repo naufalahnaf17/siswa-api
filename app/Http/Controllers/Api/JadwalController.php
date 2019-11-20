@@ -29,8 +29,8 @@ class JadwalController extends Controller
                    ['sis_jadwal.kode_kelas', '=', 'XI-13RPL']
                  ]);
         })
-        ->join('karyawan', function ($join) {
-            $join->on('sis_jadwal.nik', '=', 'karyawan.nik')
+        ->join('karyawan', function ($kar) {
+            $kar->on('sis_jadwal.nik', '=', 'karyawan.nik')
                  ->where([
                    ['sis_jadwal.kode_lokasi', '=', '12']
                  ]);
