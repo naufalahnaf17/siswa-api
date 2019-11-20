@@ -25,8 +25,8 @@ class JadwalController extends Controller
             $join->on('sis_jadwal.kode_slot', '=', 'sis_slot.kode_slot')
                  ->where('sis_jadwal.kode_pp', '=', 'YSPTE05')
                  ->where('sis_jadwal.kode_lokasi', '=', 'sis_slot.kode_lokasi');
+                 ->select('sis_jadwal.*', 'sis_slot.nama')
         })
-        ->select('sis_jadwal.*', 'sis_slot.nama')
         ->get();
 
         $kelas_2tkj = Jadwal::where([
