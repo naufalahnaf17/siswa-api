@@ -10,6 +10,7 @@ class SiswaTagihanController extends Controller
 {
     public function index($nis)
     {
+      return response($nis);
 
       $tagihan = DB::table('sis_siswa')
       ->join('sis_siswa_tarif', function ($join) {
