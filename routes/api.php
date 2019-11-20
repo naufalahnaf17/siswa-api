@@ -156,6 +156,9 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::put('siswa-raport/{nis}' , 'Api\SiswaRaportController@edit');
     Route::delete('siswa-raport/{nis}' , 'Api\SiswaRaportController@hapus');
 
+    // Untuk Pembayaran
+    Route::get('siswa-tarif/{nis}' , 'Api\SiswaTagihanController@index');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
