@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Jadwal;
+use Illuminate\Support\Facades\DB;
 
 class JadwalController extends Controller
 {
@@ -19,11 +20,10 @@ class JadwalController extends Controller
 
       if (count($data) > 0 ) {
 
-        $kelas_11 = Jadwal::where([
-          ['kode_lokasi', '=', '12'],
-          ['kode_pp', '=', 'yspte05'],
-          ['kode_kelas', '=', 'XI-13RPL']
-        ])->get();
+        $kelas_11 = DB::table('sis_jadwal')
+                    ->join('sis_slot', 'sis_jadwal.kode_slot', '=', 'sis_slot.kode_slot')
+                    ->select('sis_jadwal.*')
+                    ->get();
 
         $kelas_2tkj = Jadwal::where([
           ['kode_lokasi', '=', '12'],
