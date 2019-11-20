@@ -11,7 +11,7 @@ class SiswaTagihanController extends Controller
     public function index($nis)
     {
 
-      $tagihan = DB::table('sis_siswa')->where('nis' , $nis)->get();
+      $tagihan = DB::table('sis_siswa_tarif')->where('nis' , $nis)->get();
 
       if (count($tagihan) > 0) {
         $res['Tagihan'] = $tagihan;
