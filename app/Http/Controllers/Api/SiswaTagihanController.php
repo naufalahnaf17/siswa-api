@@ -8,13 +8,12 @@ use Illuminate\Support\Facades\DB;
 
 class SiswaTagihanController extends Controller
 {
-    public function index(Request $request)
+    public function index($nis)
     {
 
-      $nis = $request->input('nis');
       $tagihan = DB::table('sis_siswa')->where('nis' , $nis)->get();
 
-      if ($tagihan) {
+      if (count($tagihan) > 0) {
         $res['Tagihan'] = $tagihan;
         return response($res);
       }else {
