@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 class SiswaTagihanController extends Controller
 {
-    public function index($nis)
+    public function index(Request $request)
     {
 
+      $nis = $request->input('nis');
       $tagihan = DB::table('sis_siswa')
       ->join('sis_siswa_tarif', function ($join) {
           $join->on('sis_siswa.nis', '=', 'sis_siswa_tarif.nis')
