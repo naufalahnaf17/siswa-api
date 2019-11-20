@@ -12,12 +12,7 @@ class SiswaTagihanController extends Controller
     {
 
       $nis = $request->input('nis');
-      $tagihan = DB::table('sis_siswa')
-      ->join('sis_siswa_tarif', function ($join) {
-          $join->on('sis_siswa.nis', '=', 'sis_siswa_tarif.nis')
-               ->where('sis_siswa' , '=' , $nis);
-      })
-      ->get();
+      $tagihan = DB::table('sis_siswa')->where('nis' , $nis)->get();
 
       if ($tagihan) {
         $res['Tagihan'] = $tagihan;
