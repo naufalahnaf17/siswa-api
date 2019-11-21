@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
 
-Route::get('react' , 'SiswaController@index');
+Route::get('react' , 'Api\SiswaController@index');
 
 // Get Menu Siswa For Dashboard
 Route::get('menu/{kode}' , 'Api\UserController@menu');
