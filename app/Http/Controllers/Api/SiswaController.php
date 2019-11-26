@@ -35,7 +35,7 @@ class SiswaController extends Controller
 
       $data = Sis_Siswa::where('nis', $nis)->orWhere('nis', 'like', '%' . $nis . '%')->first();
 
-      if (count($data) > 0 ) {
+      if ($data) {
         $res['message'] = "Success Mengambil Data";
         $res['value'] = $data;
         return response($res);
