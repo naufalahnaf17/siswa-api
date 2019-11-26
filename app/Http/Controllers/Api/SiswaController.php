@@ -37,9 +37,7 @@ class SiswaController extends Controller
             ->where([
                 ['kode_lokasi', '=', '12'],
                 ['kode_pp', '=', 'yspte05'],
-                ['nis', 'like', '%'.$nis],
-                ['nama', 'like', '%'.$nis],
-                ['kode_kelas', 'like', '%'.$nis]
+                ['nis', 'like', '%'.$nis]
               ])->get();
 
       if (count($data) > 0 ) {
