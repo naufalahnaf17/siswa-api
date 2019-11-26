@@ -33,13 +33,14 @@ class SiswaController extends Controller
 
     public function spesifik($nis){
 
-      $data = Sis_Siswa::where([
-        ['kode_lokasi', '=', '12'],
-        ['kode_pp', '=', 'yspte05'],
-        ['nis', 'like', $nis'%'.],
-        ['nama', 'like', $nis'%'.],
-        ['kode_kelas', 'like', $nis'%'.]
-      ])->get();
+      $data = DB::table('sis_siswa')
+            ->where([
+                ['kode_lokasi', '=', '12'],
+                ['kode_pp', '=', 'yspte05'],
+                ['nis', 'like', '%'.$nis],
+                ['nama', 'like', '%'.$nis],
+                ['kode_kelas', 'like', '%'.$nis]
+              ])->get();
 
       if (count($data) > 0 ) {
         $res['message'] = "Success Mengambil Data";
