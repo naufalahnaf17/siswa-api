@@ -37,7 +37,7 @@ class SiswaController extends Controller
       ->orWhere('nis', 'like', '%' . $nis . '%')
       ->orWhere('nama', 'like', '%' . $nis . '%')
       ->orWhere('kode_kelas', 'like', '%' . $nis . '%')
-      ->get();
+      ->paginate(1);
 
       if ($data) {
         $res['message'] = "Success Mengambil Data";
