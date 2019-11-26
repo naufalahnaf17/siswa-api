@@ -33,7 +33,11 @@ class SiswaController extends Controller
 
     public function spesifik($nis){
 
-      $data = Sis_Siswa::where('nis', $nis)->orWhere('nis', 'like', '%' . $nis . '%')->first();
+      $data = Sis_Siswa::where('nis', $nis)
+      ->orWhere('nis', 'like', '%' . $nis . '%')
+      ->orWhere('nama', 'like', '%' . $nis . '%')
+      ->orWhere('kode_kelas', 'like', '%' . $nis . '%')
+      ->first();
 
       if ($data) {
         $res['message'] = "Success Mengambil Data";
