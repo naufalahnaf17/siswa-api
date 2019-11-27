@@ -21,8 +21,10 @@ class GuruMatpelController extends Controller
                ['sis_guru_matpel.kode_lokasi', '=', '12'],
                ['sis_guru_matpel.kode_pp', '=', 'yspte05']
              ]);
+    })
+    ->get();
 
-    if (count($data) > 0 ) {
+    if ($data) {
       $res['message'] = "Success Mengambil Data";
       $res['value'] = $data;
       return response($res);
