@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator;
 use App\GuruMatpel;
+use Illuminate\Support\Facades\DB;
 
 class GuruMatpelController extends Controller
 {
@@ -13,10 +14,13 @@ class GuruMatpelController extends Controller
   public function index()
   {
 
-    $data = GuruMatpel::where([
-      ['kode_lokasi', '=', '12'],
-      ['kode_pp', '=', 'yspte05']
-    ])->get();
+    $data = DB::table('sis_guru_matpel')
+    ->join('karyawan', function ($join) {
+        $join->on('sis_guru_matpel.nik', '=', 'karyawan.nik')
+             ->where([
+               ['sis_guru_matpel.kode_lokasi', '=', '12'],
+               ['sis_guru_matpel.kode_pp', '=', 'yspte05']
+             ]);
 
     if (count($data) > 0 ) {
       $res['message'] = "Success Mengambil Data";
