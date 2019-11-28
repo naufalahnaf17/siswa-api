@@ -14,8 +14,7 @@ use Illuminate\Http\Request;
 */
 
 // Login Register
-Route::post('login', 'Api\UserController@login');
-Route::post('register', 'Api\UserController@register');
+
 
 Route::get('react' , 'Api\SiswaController@index');
 
@@ -27,6 +26,9 @@ Route::post('mform/tambah' , 'Api\UserController@tambahMform');
 Route::delete('mform/delete/{kode_form}' , 'Api\UserController@deleteMform');
 
 Route::group(['middleware' => 'cors:api'] , function(){
+  Route::post('login', 'Api\UserController@login');
+  Route::post('register', 'Api\UserController@register');
+
   // Crud Siswa
   Route::get('siswa','Api\SiswaController@index');
   Route::get('siswa/{nis}','Api\SiswaController@spesifik');
