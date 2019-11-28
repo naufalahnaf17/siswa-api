@@ -18,7 +18,7 @@ class SiswaController extends Controller
       $data = Sis_Siswa::where([
         ['kode_lokasi', '=', '12'],
         ['kode_pp', '=', 'yspte05']
-      ])->paginate(15);
+      ])->get();
 
       if (count($data) > 0 ) {
         $res['message'] = "Success Mengambil Data";
@@ -37,7 +37,7 @@ class SiswaController extends Controller
       ->orWhere('nis', 'like', '%' . $nis . '%')
       ->orWhere('nama', 'like', '%' . $nis . '%')
       ->orWhere('kode_kelas', 'like', '%' . $nis . '%')
-      ->paginate(1);
+      ->paginate(10);
 
       if ($data) {
         $res['message'] = "Success Mengambil Data";
