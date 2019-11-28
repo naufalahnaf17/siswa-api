@@ -18,7 +18,7 @@ class SiswaController extends Controller
       $data = Sis_Siswa::where([
         ['kode_lokasi', '=', '12'],
         ['kode_pp', '=', 'yspte05']
-      ])->get();
+      ])->paginate(50);
 
       if (count($data) > 0 ) {
         $res['message'] = "Success Mengambil Data";
