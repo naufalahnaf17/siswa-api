@@ -28,20 +28,20 @@ Route::delete('mform/delete/{kode_form}' , 'Api\UserController@deleteMform');
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
 
-// Crud Siswa
-Route::get('siswa','Api\SiswaController@index');
-Route::get('siswa/{nis}','Api\SiswaController@spesifik');
-Route::post('siswa','Api\SiswaController@tambah');
-Route::put('siswa/{nis}','Api\SiswaController@edit');
-Route::delete('siswa/{nis}','Api\SiswaController@hapus');
-
 Route::group(['middleware' => 'auth:api'], function() {
+
+    // Crud Siswa
+    Route::get('siswa','Api\SiswaController@index');
+    Route::get('siswa/{nis}','Api\SiswaController@spesifik');
+    Route::post('siswa','Api\SiswaController@tambah');
+    Route::put('siswa/{nis}','Api\SiswaController@edit');
+    Route::delete('siswa/{nis}','Api\SiswaController@hapus');
+
     //Detail Account
     Route::post('details', 'Api\UserController@details');
     Route::post('details/{id}' , 'Api\UserController@set_profile');
     Route::post('add-detail' , 'Api\UserController@addDetail');
     Route::put('update-detail' , 'Api\UserController@updateDetail');
-
 
     // Crud Jadwal
     Route::get('jadwal' , 'Api\JadwalController@index');
