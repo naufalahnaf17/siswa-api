@@ -15,7 +15,10 @@ class SiswaController extends Controller
 
     public function index(){
 
-      $data = Sis_Siswa::paginate(15);
+      $data = Sis_Siswa::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05']
+      ])->paginate(15);
 
       if (count($data) > 0 ) {
         $res['message'] = "Success Mengambil Data";
