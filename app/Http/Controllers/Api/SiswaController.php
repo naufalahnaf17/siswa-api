@@ -31,6 +31,24 @@ class SiswaController extends Controller
 
     }
 
+    public function entry($key){
+
+      $data = Sis_Siswa::where([
+        ['kode_lokasi', '=', '12'],
+        ['kode_pp', '=', 'yspte05']
+      ])->paginate($key);
+
+      if (count($data) > 0 ) {
+        $res['message'] = "Success Mengambil Data";
+        $res['value'] = $data;
+        return response($res);
+      }else {
+        $res['message'] = "Data Kosong";
+        return response($res);
+      }
+
+    }
+
     public function spesifik($nis){
 
       $data = Sis_Siswa::where('nis', $nis)
