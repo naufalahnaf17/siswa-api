@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator;
 use App\TagihanSiswa;
+use Illuminate\Support\Facades\DB;
 
 class TagihanSiswaController extends Controller
 {
@@ -66,9 +67,9 @@ class TagihanSiswaController extends Controller
 
     public function hapus($no_tagihan){
 
-      $data = TagihanSiswa::where('no_tagihan',$no_tagihan)->first();
+      $data = DB::table('dev_tagihan_m')->where('no_tagihan',$no_tagihan)->delete();
 
-      if ($data->delete()) {
+      if ($data) {
         return response('Berhasil Menghapus Data',200);
       }else {
         return response('Gagal Menghapus Data',400);
