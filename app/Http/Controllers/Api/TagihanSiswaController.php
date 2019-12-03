@@ -19,7 +19,7 @@ class TagihanSiswaController extends Controller
         $res['value'] = $data;
         return response($res,200);
       }else {
-        return response('Data Di Database Kosong',400)
+        return response('Data Di Database Kosong',400);
       }
 
     }
