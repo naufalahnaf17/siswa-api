@@ -80,7 +80,7 @@ class TagihanSiswaController extends Controller
 
     public function spesifik($key){
 
-      $data = Sis_Siswa::where('no_tagihan' , 'like', '%'. $key)
+      $data = TagihanSiswa::where('no_tagihan' , 'like', '%'. $key)
       ->orWhere('nim', 'like', '%' . $key)
       ->orWhere('keterangan', 'like', '%' . $key)
       ->get();
