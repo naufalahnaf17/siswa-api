@@ -164,6 +164,14 @@ Route::group(['middleware' => 'auth:api'], function() {
     // Untuk Pembayaran
     Route::get('siswa-tarif/{nis}' , 'Api\SiswaTagihanController@index');
 
+    // Untuk Tagihan Dummy Dev
+    Route::get('tagihan-m' , 'Api\TagihanSiswaController@index');
+    Route::get('tagihan-m/{key}','Api\SiswaController@spesifik');
+    Route::get('tagihan-m/{key}/entry','Api\SiswaController@entry');
+    Route::post('tagihan-m', 'Api\TagihanSiswaController@tambah');
+    Route::put('tagihan-m/{nim}' , 'Api\TagihanSiswaController@edit');
+    Route::delete('tagihan-m/{nim}' , 'Api\TagihanSiswaController@hapus');
+
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');
     Route::post('file/upload' , 'Api\FileController@upload');
