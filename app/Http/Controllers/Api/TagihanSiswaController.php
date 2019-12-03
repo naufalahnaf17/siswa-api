@@ -110,4 +110,16 @@ class TagihanSiswaController extends Controller
 
     }
 
+    public function dataEdit($no_tagihan){
+
+      $data = TagihanSiswa::where('no_tagihan',$no_tagihan)->first();
+
+      if ($data) {
+        return response($data,200);
+      }else {
+        return response('Terjadi kesalahaan');
+      }
+
+    }
+
 }

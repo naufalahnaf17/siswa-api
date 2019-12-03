@@ -166,6 +166,7 @@ Route::group(['middleware' => 'auth:api'], function() {
 
     // Untuk Tagihan Dummy Dev
     Route::get('tagihan-m' , 'Api\TagihanSiswaController@index');
+    Route::get('tagihan-m/data-edit/{no_tagihan}' , 'Api\TagihanSiswaController@dataEdit');
     Route::get('tagihan-m/{key}','Api\SiswaController@spesifik');
     Route::get('tagihan-m/{key}/entry','Api\SiswaController@entry');
     Route::post('tagihan-m', 'Api\TagihanSiswaController@tambah');
