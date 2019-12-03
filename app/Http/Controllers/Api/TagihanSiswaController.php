@@ -45,7 +45,7 @@ class TagihanSiswaController extends Controller
 
     }
 
-    public function edit($no_tagihan_edit){
+    public function edit($no_tagihan_edit,Request $request){
 
       $kode_lokasi = '12';
 
