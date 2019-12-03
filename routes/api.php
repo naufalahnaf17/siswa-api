@@ -169,8 +169,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('tagihan-m/{key}','Api\SiswaController@spesifik');
     Route::get('tagihan-m/{key}/entry','Api\SiswaController@entry');
     Route::post('tagihan-m', 'Api\TagihanSiswaController@tambah');
-    Route::put('tagihan-m/{nim}' , 'Api\TagihanSiswaController@edit');
-    Route::delete('tagihan-m/{nim}' , 'Api\TagihanSiswaController@hapus');
+    Route::put('tagihan-m/{no_tagihan}' , 'Api\TagihanSiswaController@edit');
+    Route::delete('tagihan-m/{no_tagihan}' , 'Api\TagihanSiswaController@hapus');
 
     // Upload Image For Profile
     Route::get('file/download/{nama}' , 'Api\FileController@download');

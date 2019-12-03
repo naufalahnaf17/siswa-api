@@ -44,11 +44,11 @@ class TagihanSiswaController extends Controller
 
     }
 
-    public function edit($nim_edit){
+    public function edit($no_tagihan_edit){
 
       $kode_lokasi = '12';
 
-      $data = TagihanSiswa::where('nim' , '=' , $nim_edit)->first();
+      $data = TagihanSiswa::where('no_tagihan' , '=' , $no_tagihan_edit)->first();
       $data->no_tagihan = $request->input('no_tagihan');
       $data->kode_lokasi = $kode_lokasi;
       $data->nim = $request->input('nim');
@@ -64,9 +64,9 @@ class TagihanSiswaController extends Controller
 
     }
 
-    public function hapus($nim){
+    public function hapus($no_tagihan){
 
-      $data = TagihanSiswa::where('nim','=',$nim)->first();
+      $data = TagihanSiswa::where('no_tagihan','=',$no_tagihan)->first();
 
       if ($data->delete()) {
         return response('Berhasil Menghapus Data',200);
