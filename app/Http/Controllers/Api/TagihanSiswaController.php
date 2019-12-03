@@ -49,15 +49,16 @@ class TagihanSiswaController extends Controller
 
       $kode_lokasi = '12';
 
-      $data = TagihanSiswa::where('no_tagihan' , '=' , $no_tagihan_edit)->first();
-      $data->no_tagihan = $request->input('no_tagihan');
-      $data->kode_lokasi = $kode_lokasi;
-      $data->nim = $request->input('nim');
-      $data->tanggal = $request->input('tanggal');
-      $data->keterangan = $request->input('keterangan');
-      $data->periode = $request->input('periode');
+      $data = DB::table('dev_tagihan_m')->where('no_tagihan',$no_tagihan_edit)->update([
+        'no_tagihan' => $request->input('no_tagihan'),
+        'kode_lokasi' => $kode_lokasi,
+        'nim' => $request->input('nim'),
+        'tanggal' => $request->input('tanggal'),
+        'keterangan' => $request->input('keterangan'),
+        'periode' => $request->input('periode')
+      ]);
 
-      if ($data->save()) {
+      if ($data) {
         return response('Berhasil Mengubah Data',200);
       }else {
         return response('Gagal Mengubah Data',400);
