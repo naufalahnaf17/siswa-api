@@ -83,7 +83,7 @@ class TagihanSiswaController extends Controller
       $data = Sis_Siswa::where('no_tagihan' , 'like', '%'. $key)
       ->orWhere('nim', 'like', '%' . $key)
       ->orWhere('keterangan', 'like', '%' . $key)
-      ->paginate(5);
+      ->get();
 
       if ($data) {
         $res['message'] = "Success Mengambil Data";
