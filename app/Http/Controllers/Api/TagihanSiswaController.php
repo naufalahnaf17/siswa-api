@@ -66,7 +66,7 @@ class TagihanSiswaController extends Controller
 
     public function hapus($no_tagihan){
 
-      $data = TagihanSiswa::where('no_tagihan','=',$no_tagihan)->first();
+      $data = TagihanSiswa::where('no_tagihan',$no_tagihan)->first();
 
       if ($data->delete()) {
         return response('Berhasil Menghapus Data',200);
