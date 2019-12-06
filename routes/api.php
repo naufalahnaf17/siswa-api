@@ -28,6 +28,10 @@ Route::delete('mform/delete/{kode_form}' , 'Api\UserController@deleteMform');
 Route::post('login', 'Api\UserController@login');
 Route::post('register', 'Api\UserController@register');
 
+// Cek Realtime Message App
+Route::get('pesan' , 'Api\PesanController@index');
+Route::post('pesan' , 'Api\PesanController@send');
+
 Route::group(['middleware' => 'auth:api'], function() {
 
     // Crud Siswa
